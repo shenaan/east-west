@@ -1,0 +1,645 @@
+<!doctype html>
+<html class="no-js" lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Восток-Запад</title>
+    <meta name="description" content="">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:600&amp;subset=cyrillic-ext" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/pure-min.css">
+
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="css/grids-responsive-old-ie-min.css">
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+    <link rel="stylesheet" href="css/grids-responsive-min.css">
+    <!--<![endif]-->
+
+    <link rel="stylesheet" href="css/normalize.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" type="text/css" href="css/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="css/slick-theme.css"/>
+    <link rel="stylesheet" type="text/css" href="css/lightcase.css"/>
+    <link rel="stylesheet" href="css/jquery.formstyler.css">
+    <link rel="stylesheet" href="css/jquery-ui.min.css">
+    <link rel="stylesheet" href="css/main.css">
+
+    <!--[if lt IE 9]>
+    <script src="js/vendor/html5shiv.js"></script>
+    <![endif]-->
+</head>
+<body>
+<!--[if lt IE 8]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+<![endif]-->
+<div class="modal" id="modal-sign-up">
+    <a href="" class="modal__close"></a>
+    <div class="modal__inner">
+        <div class="modal__title">ЗАКАЖИТЕ ЗВОНОК</div>
+        <div class="modal__sub-title">МЫ ПЕРЕЗВОНИМ ВАМ В ЛЮБОЕ УДОБНОЕ ВРЕМЯ</div>
+        <p class="text-center modal__info-text">Выберите время <br>и оставьте номер телефона</p>
+
+        <div class="modal__form-inner">
+            <div class="pure-g">
+                <div class="pure-u-1-3">
+                    <div class="form-row form-row__w-icon form-row__select">
+                        <div class="form-row__icon"><i class="icon-calendar"></i></div>
+
+                        <select class="styler">
+                            <option>Сегодня</option>
+                            <option>Завтра</option>
+                            <option>Никогда))</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="pure-u-2-3">
+                    <div class="form-row range-slider">
+                        <input type="text" id="amount-time-from" value="10:00">
+                        <div id="slider-time"></div>
+                        <input type="text" id="amount-time-to" value="20:00">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row form-row__w-icon">
+                <div class="form-row__icon"><i class="icon-name"></i></div>
+                <input type="text" placeholder="Имя" onclick="this.placeholder=''" onblur="this.placeholder='Имя'">
+            </div>
+
+            <div class="form-row form-row__w-icon">
+                <div class="form-row__icon"><i class="icon-phone-handle"></i></div>
+                <input type="tel" placeholder="Телефон" onclick="this.placeholder=''" onblur="this.placeholder='Телефон'">
+            </div>
+
+
+            <div class="form-row form-row__w-icon">
+                <div class="form-row__icon"><i class="icon-envelope"></i></div>
+                <textarea placeholder="Комментарий" onclick="this.placeholder=''" onblur="this.placeholder='Комментарий'"></textarea>
+            </div>
+
+            <div class="text-center"><a href="" class="btn btn__red"><i class="icon-call-me"></i>ЖДУ ЗВОНКА</a></div>
+        </div>
+    </div>
+</div>
+
+<div id="overlay"></div>
+
+<header id="header">
+    <video autoplay class="header__video">
+        <source src="css/media/header-animation.mp4" type="video/mp4">
+        <source src="css/media/header-animation.ogg" type="video/ogg">
+    </video>
+    <div class="main-container ">
+        <div class="header__top clearfix">
+            <div class="pull-left ">
+                <a href="index.html" class="header__logo wow bounceIn" data-wow-offset="10" data-wow-delay="0.3s"
+                   data-wow-duration="2.5s"></a>
+            </div>
+
+            <div class="pull-right">
+                <nav class="header-nav">
+                    <ul class="header-list wow fadeInDown" data-wow-offset="10" data-wow-delay="1s"
+                        data-wow-duration="1s">
+                        <li class="header__list-item"><a href="#" class="header__list-link active">Новости</a></li>
+                        <li class="header__list-item"><a href="#" class="header__list-link">Компания</a></li>
+                        <li class="header__list-item"><a href="#" class="header__list-link">Продукция</a></li>
+                        <li class="header__list-item"><a href="#" class="header__list-link ">Портфолио</a></li>
+                        <li class="header__list-item"><a href="#" class="header__list-link">Технология</a></li>
+                        <li class="header__list-item"><a href="#" class="header__list-link">Контакты</a></li>
+                    </ul>
+                </nav>
+
+                <div class="header-info wow bounceIn" data-wow-offset="10" data-wow-delay="2.6s" data-wow-duration="1s">
+                    <a href="#" class="header__download-price" download><span class="icon-download"></span>Скачать
+                        прайс-лист</a>
+                    <a href="tel:(863)255-97-11" class="header__phone"><span
+                            class="icon-phone"></span>(863)255-97-11</a>
+                    <a href="#modal-sign-up" class="header__link modal-btn">Заказать звонок</a>
+                </div>
+            </div>
+        </div>
+        <div class="header-welcome">
+            <div class="h1 header__h1 wow fadeInUp" data-wow-offset="10" data-wow-delay="0.5s" data-wow-duration="1s">
+                Рекламно-производственная
+                компания "восток-запад"
+            </div>
+            <h3 class="h3 header__h3 wow fadeInDown" data-wow-offset="10" data-wow-delay="0.7s" data-wow-duration="1s">
+                POS материалы, рекламная и сувенирная продукция
+                Разработка, производство, поставка по РФ</h3>
+        </div>
+    </div>
+    <nav class="main-menu wow fadeInUp" data-wow-offset="10" data-wow-delay="0.9s" data-wow-duration="0.3s">
+        <div class="main-container">
+            <ul class="main-menu__list">
+                <li class="main-menu__list-item">
+                    <a href="#" class="main-menu__list--link active">
+                                        <span class="main-menu__icon-wrap wow zoomIn" data-wow-delay="1.2s">
+                                            <span class="main-menu__icon icon-posmaterials"></span>
+                                            <span class="main-menu__icon main-menu__icon_active icon-posmaterials_active"></span>
+                                        </span>
+                        <span class="main-menu__text wow fadeInUp" data-wow-delay="1.4s">POS материалы</span>
+                    </a>
+                </li>
+                <li class="main-menu__list-item">
+                    <a href="#" class="main-menu__list--link">
+                                        <span class="main-menu__icon-wrap wow zoomIn" data-wow-delay="1.5s">
+                                            <span class="main-menu__icon icon-souvenirs"></span>
+                                            <span class="main-menu__icon main-menu__icon_active icon-souvenirs_active"></span>
+                                        </span>
+                        <span class="main-menu__text wow fadeInUp" data-wow-delay="1.7s">сувенирная продукция</span>
+                    </a>
+                </li>
+                <li class="main-menu__list-item">
+                    <a href="#" class="main-menu__list--link">
+                                        <span class="main-menu__icon-wrap wow zoomIn" data-wow-delay="1.8s">
+                                            <span class="main-menu__icon icon-print"></span>
+                                            <span class="main-menu__icon main-menu__icon_active icon-print_active"></span>
+                                        </span>
+                        <span class="main-menu__text wow fadeInUp" data-wow-delay="2s">полиграфия</span>
+                    </a>
+                </li>
+                <li class="main-menu__list-item">
+                    <a href="#" class="main-menu__list--link">
+                                        <span class="main-menu__icon-wrap wow zoomIn" data-wow-delay="2.1s">
+                                            <span class="main-menu__icon icon-advert"></span>
+                                            <span class="main-menu__icon main-menu__icon_active icon-advert_active"></span>
+                                        </span>
+                        <span class="main-menu__text wow fadeInUp" data-wow-delay="2.3s">наружная реклама</span>
+                    </a>
+                </li>
+                <li class="main-menu__list-item">
+                    <a href="#" class="main-menu__list--link">
+                                        <span class="main-menu__icon-wrap wow zoomIn" data-wow-delay="2.4s">
+                                            <span class="main-menu__icon icon-inet"></span>
+                                            <span class="main-menu__icon main-menu__icon_active icon-inet_active"></span>
+                                        </span>
+                        <span class="main-menu__text wow fadeInUp" data-wow-delay="2.6s">интернет магазин</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<main class="main">
+    <div class="sidebar-menu">
+        <a href="#" class="sidebar-menu__item">
+            <div class="sidebar-menu__icon"><span class="icon-sound"></span></div>
+            <div class="sidebar-menu__text">Новости</div>
+        </a>
+        <a href="#" class="sidebar-menu__item">
+            <div class="sidebar-menu__icon"><span class="icon-login"></span></div>
+            <div class="sidebar-menu__text">Компания</div>
+        </a>
+        <a href="#" class="sidebar-menu__item">
+            <div class="sidebar-menu__icon"><span class="icon-pen"></span></div>
+            <div class="sidebar-menu__text">Продукция</div>
+        </a>
+        <a href="#" class="sidebar-menu__item">
+            <div class="sidebar-menu__icon"><span class="icon-bag"></span></div>
+            <div class="sidebar-menu__text">Портфолио</div>
+        </a>
+        <a href="#" class="sidebar-menu__item">
+            <div class="sidebar-menu__icon"><span class="icon-settings"></span></div>
+            <div class="sidebar-menu__text">Технологии</div>
+        </a>
+        <a href="#" class="sidebar-menu__item">
+            <div class="sidebar-menu__icon"><span class="icon-email"></span></div>
+            <div class="sidebar-menu__text">Контакты</div>
+        </a>
+    </div>
+
+    <h2 class="h1 glass-page__title">ИЗДЕЛИЯ ИЗ ОРГСТЕКЛА</h2>
+
+    <video autoplay class="glass__animation" poster="img/page4-top-bg.png">
+        <source src="css/media/glass.mp4" type="video/mp4">
+        <source src="css/media/glass.ogg" type="video/ogg">
+    </video>
+    <div class="main-container">
+        <div class="about-glass__content about-glass__content1">
+            <h2 class="h1">Оргстекло в производстве рекламной продукции и POS материалов </h2>
+            <p><b>ОРГСТЕКЛО (АКРИЛОВОЕ СТЕКЛО, АКРИЛ)</b>— легкий прочный пластик,
+                обладающий рядом уникальных свойств, делающих его незаменимым в производстве
+                рекламных конструкций, торгового оборудования и P.O.S. материалов.
+                <br>
+                В настоящее время трудно себе представить торговые залы, офисы продаж или
+                выставочные стенды, в оформлении которых не применены изделия из оргстекла.
+                Подставки для продукции и полиграфии, стеллажи, диспенсеры, демонстраторы,
+                дисплеи, полки, мини-витрины, этажерки, держатели информационных листовок и
+                ценников, всевозможные таблички и указатели — это далеко не все возможные
+                варианты использования акрилового стекла. Также, оргстекло — практически
+                безальтернативный материал для изготовления световых коробов, объемных букв и
+                неоновой рекламы.
+            </p>
+        </div>
+        <div class="about-glass__content about-glass__content2">
+            <h2 class="h1">Подставки из оргстекла </h2>
+            <p>Эффективные и недорогие pos материалы, нашедшие широкое
+                применение в оформлении точек продаж: в торговых залах, офисах, на презентациях
+                и выставках. Подставки из оргстекла принято разделять на подставки для печатной
+                продукции и подставки под товар
+                <br>
+                <br>
+                <b>ПОДСТАВКИ ПОД ТОВАР ИЗ ОРГСТЕКЛА</b> — это pos
+                материалы, способствующие наглядной демонстрации товара
+                покупателю и наиболее эффективному использованию пространства
+                торговой площади. Это могут быть как универсальные подставки
+                для выкладки любой продукции (мини-витрины, этажерки, горки),
+                так и подставки, разработанные специально для определенного типа
+                товаров. В отдельный пункт стоит выделить подставки для
+                телефонов и подобных мобильных устройств (плейеры, фотоаппараты, GPS навигаторы).
+                Не один салон связи или магазин электроники не может обойтись без
+                специализированных подставок из оргстекла для наглядной демонстрации подобной
+                продукции.
+                <br>
+                Также широкое применение нашли подставки под бижутерию и ювелирные изделия.
+                Легкие элегантные подставки для колец, цепочек, ювелирных гарнитуров,
+                выполненные из прозрачного оргстекла способствуют наиболее эффектной демонстрации
+                украшений на витринах ювелирных салонов.
+
+            </p>
+        </div>
+    </div>
+
+    <div class="glass-products">
+        <div class="main-container">
+            <div class="glass-products__top-part pure-g">
+                <div class="pure-u-1-2">
+                    <div class="glass-products__img">
+                        <div class="gp__circle-big gp__circle-big--left">
+                            <div class="gp__img-bg"></div>
+                            <span class="gp__circle-small gp__circle-small--left1"></span>
+                            <span class="gp__circle-small gp__circle-small--left2"></span>
+                            <span class="gp__circle-small gp__circle-small--left3"></span>
+                            <span class="gp__circle-small gp__circle-small--left4"></span>
+                            <span class="gp__circle-small gp__circle-small--left5"></span>
+                            <span class="gp__circle-small gp__circle-small--left6"></span>
+                            <span class="gp__circle-small gp__circle-small--left7"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="pure-u-1-2">
+                    <ul class="glass-products__list">
+                        <li class="gp__list-item">
+                            <span class="icon-mob-phone"></span>Подставки под телефоны
+                        </li>
+                        <li class="gp__list-item">
+                            <span class="icon-laptop"></span>Подставки электронику, мобильные устройства
+                        </li>
+                        <li class="gp__list-item">
+                            <span class="icon-jewelery"></span>Подставки бижутерию и ювелирные украшения
+                        </li>
+                        <li class="gp__list-item">
+                            <span class="icon-stationary"></span>Подставки под канцелярские товары
+                            и настольные принадлежности
+                        </li>
+                        <li class="gp__list-item">
+                            <span class="icon-wineglass"></span>Подставки под посуду
+                        </li>
+                        <li class="gp__list-item">
+                            <span class="icon-shoes"></span>Подставки под обувь, одежду, аксессуары (ремни, сумки,
+                            галстуки)
+                        </li>
+                        <li class="gp__list-item">
+                            <span class="icon-grocery"></span>Подставки, дисплеи и диспенсеры для продовольственных
+                            товаров
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="glass-products__bottom-part pure-g">
+                <div class="pure-u-1-2">
+                    <p class="gp__description">
+                        <b>ПОДСТАВКИ ПОД ПЕЧАТНЫЕ МАТЕРИАЛЫ ИЗ ОРГСТЕКЛА.</b>
+                        POS материалы для размещения, демонстрации и раздачи рекламной
+                        полиграфии, буклетов, листовок, проспектов и т.п. Подставки для
+                        полиграфии могут использоваться как для выдачи брошюр (диспенсеры,
+                        буклетницы, напольные стойки, объемные карманы), так и для демонстрации
+                        рекламных материалов (дисплеи, холдеры, демонстраторы, плоские карманы).
+                        <br>
+                        Наиболее распространенный примеры:
+                        <br>
+                        • Держатели информации (инфо-холдер, шоу-кард) — подставки для демонстрации сменных листов, будь
+                        то информационная листовка, визитная карточка, прайс-лист, ценник или распечатанный на принтере
+                        лист текста
+                        • Буклетницы (лифлетницы, лифлет-холдеры) — подставка для демонстрации и раздачи рекламных
+                        буклетов, листовок и печатных промо-материалов.
+                    </p>
+                    <ul class="glass-products__list">
+                        <li class="gp__list-item">
+                            <span class="icon-holders"></span>Держатели информации (инфо холдер,
+                            <br>шоу кард)
+                        </li>
+                        <li class="gp__list-item">
+                            <span class="icon-booklets"></span>
+                            Буклетницы (лифлетницы,
+                            <br>лифлет-холдеры)
+                        </li>
+                    </ul>
+                </div>
+                <div class="pure-u-1-2">
+                    <div class="glass-products__img">
+                        <div class="gp__circle-big gp__circle-big--right">
+                            <div class="gp__img-bg"></div>
+                            <span class="gp__circle-small gp__circle-small--right1"></span>
+                            <span class="gp__circle-small gp__circle-small--right2"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-container">
+        <div class="about-glass__content about-glass__content3">
+            <h2 class="h1">Разработка и производство изделий из оргстекла</h2>
+            <p>
+                В компании «Восток-Запад» в совершенстве освоены технологии
+                обработки оргстекла: лазерная резка, фрезерование, термогиб,
+                вакуумная формовка, склейка, гравировка, шелкография и аппликация
+                на поверхностях. Мы работаем с оргстеклом любого цвета,
+                прозрачности и толщины. Мы с готовностью беремся за нестандартные
+                и сложные задачи, имея богатый опыт в таких проектах. У нас есть каталог
+                типовых pos-материалов из оргстекла с рассчитанными тиражами и ценами,
+                представленный ниже в этом разделе.
+            </p>
+        </div>
+    </div>
+
+    <div class="catalog">
+        <div class="main-container">
+            <h2 class="h1">КАТАЛОГ</h2>
+            <div class="catalog__slider">
+                <div class="catalog__slider-slide active">
+                    <a href="#" class="catalog__slider-link">
+                        <img src="img/page4-slider-img1.png" alt="">
+                    </a>
+                    <span class="catalog__slide-info">ДИСПЕНСЕРЫ</span>
+                </div>
+                <div class="catalog__slider-slide">
+                    <a href="#" class="catalog__slider-link">
+                        <img src="img/page4-slider-img2.png" alt="">
+                    </a>
+                    <span class="catalog__slide-info">ИНФО-ХОЛДЕРЫ</span>
+                </div>
+                <div class="catalog__slider-slide">
+                    <a href="#" class="catalog__slider-link">
+                        <img src="img/page4-slider-img3.png" alt="">
+                    </a>
+                    <span class="catalog__slide-info">ТЕБЛ ТЕНТЫ</span>
+                </div>
+                <div class="catalog__slider-slide">
+                    <a href="#" class="catalog__slider-link">
+                        <img src="img/page4-slider-img4.png" alt="">
+                    </a>
+                    <span class="catalog__slide-info">ЦЕННИКОДЕРЖАТЕЛИ</span>
+                </div>
+                <div class="catalog__slider-slide">
+                    <a href="#" class="catalog__slider-link">
+                        <img src="img/page4-slider-img4.png" alt="">
+                    </a>
+                    <span class="catalog__slide-info">КАРМАН ПЛАНШЕТКА</span>
+                </div>
+
+                <div class="catalog__slider-slide">
+                    <a href="#" class="catalog__slider-link">
+                        <img src="img/page4-slider-img2.png" alt="">
+                    </a>
+                    <span class="catalog__slide-info">ИНФО-ХОЛДЕРЫ</span>
+                </div>
+                <div class="catalog__slider-slide">
+                    <a href="#" class="catalog__slider-link">
+                        <img src="img/page4-slider-img3.png" alt="">
+                    </a>
+                    <span class="catalog__slide-info">ТЕБЛ ТЕНТЫ</span>
+                </div>
+                <div class="catalog__slider-slide">
+                    <a href="#" class="catalog__slider-link">
+                        <img src="img/page4-slider-img4.png" alt="">
+                    </a>
+                    <span class="catalog__slide-info">ЦЕННИКОДЕРЖАТЕЛИ</span>
+                </div>
+                <div class="catalog__slider-slide">
+                    <a href="#" class="catalog__slider-link">
+                        <img src="img/page4-slider-img4.png" alt="">
+                    </a>
+                    <span class="catalog__slide-info">КАРМАН ПЛАНШЕТКА</span>
+                </div>
+                <div class="catalog__slider-slide">
+                    <a href="#" class="catalog__slider-link">
+                        <img src="img/page4-slider-img4.png" alt="">
+                    </a>
+                    <span class="catalog__slide-info">КАРМАН ПЛАНШЕТКА</span>
+                </div>
+
+            </div>
+
+
+            <h2 class="catalog__subheading">Диспенсеры</h2>
+
+            <div class="modal product-modal" id="product-modal">
+                <a href="" class="modal__close"></a>
+                <div class="modal__inner clearfix">
+                    <div class="pm-slider__wrap">
+                        <div class="product-modal-slider">
+                            <div class="product-modal-slider__item" style="background-image: url(img/pic-1.png);"></div>
+                            <div class="product-modal-slider__item" style="background-image: url(img/pic-2.png);"></div>
+                            <div class="product-modal-slider__item" style="background-image: url(img/pic-3.png);"></div>
+                            <div class="product-modal-slider__item" style="background-image: url(img/pic-1.png);"></div>
+                        </div>
+
+                        <ul class="pm-slider-nav">
+                            <li class="pm-slider-nav__item" style="background-image: url(img/pic-4.png);"></li>
+                            <li class="pm-slider-nav__item" style="background-image: url(img/pic-5.png);"></li>
+                            <li class="pm-slider-nav__item" style="background-image: url(img/pic-6.png);"></li>
+                            <li class="pm-slider-nav__item" style="background-image: url(img/pic-7.png);"></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pure-g">
+                <div class="pure-u-1-4">
+                    <div class="catalog__item">
+                        <div class="catalog__item-img">
+                            <img src="img/catalog-item.png" alt="catalog item">
+                        </div>
+                        <span class="catalog__item-group">Диспенсеры</span>
+                        <span class="catalog__item-title">ДИСПЕНСЕР 01</span>
+                        <div class="catalog__item-menu">
+                            <a href="#product-modal" class="modal-btn">
+                                <span class="icon-details"></span>
+                                <span class="catalog__item-details"></span>Подробнее
+                            </a>
+                            <a href="#">
+                                <span class="icon-shop"></span>
+                                <span class="catalog__item-order"></span>Заказать
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="pure-u-1-4">
+                    <div class="catalog__item">
+                        <div class="catalog__item-img">
+                            <img src="img/catalog-item.png" alt="catalog item">
+                        </div>
+                        <span class="catalog__item-group">Диспенсеры</span>
+                        <span class="catalog__item-title">ДИСПЕНСЕР 01</span>
+                        <div class="catalog__item-menu">
+                            <a href="#">
+                                <span class="icon-details"></span>
+                                <span class="catalog__item-details"></span>Подробнее
+                            </a>
+                            <a href="#">
+                                <span class="icon-shop"></span>
+                                <span class="catalog__item-order"></span>Заказать
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="pure-u-1-4">
+                    <div class="catalog__item">
+                        <div class="catalog__item-img">
+                            <img src="img/catalog-item.png" alt="catalog item">
+                        </div>
+                        <span class="catalog__item-group">Диспенсеры</span>
+                        <span class="catalog__item-title">ДИСПЕНСЕР 01</span>
+                        <div class="catalog__item-menu">
+                            <a href="#">
+                                <span class="icon-details"></span>
+                                <span class="catalog__item-details"></span>Подробнее
+                            </a>
+                            <a href="#">
+                                <span class="icon-shop"></span>
+                                <span class="catalog__item-order"></span>Заказать
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="pure-u-1-4">
+                    <div class="catalog__item">
+                        <div class="catalog__item-img">
+                            <img src="img/catalog-item.png" alt="catalog item">
+                        </div>
+                        <span class="catalog__item-group">Диспенсеры</span>
+                        <span class="catalog__item-title">ДИСПЕНСЕР 01</span>
+                        <div class="catalog__item-menu">
+                            <a href="#">
+                                <span class="icon-details"></span>
+                                <span class="catalog__item-details"></span>Подробнее
+                            </a>
+                            <a href="#">
+                                <span class="icon-shop"></span>
+                                <span class="catalog__item-order"></span>Заказать
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="pure-u-1-4">
+                    <div class="catalog__item">
+                        <div class="catalog__item-img">
+                            <img src="img/catalog-item.png" alt="catalog item">
+                        </div>
+                        <span class="catalog__item-group">Диспенсеры</span>
+                        <span class="catalog__item-title">ДИСПЕНСЕР 01</span>
+                        <div class="catalog__item-menu">
+                            <a href="#">
+                                <span class="icon-details"></span>
+                                <span class="catalog__item-details"></span>Подробнее
+                            </a>
+                            <a href="#">
+                                <span class="icon-shop"></span>
+                                <span class="catalog__item-order"></span>Заказать
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="pure-u-1-4">
+                    <div class="catalog__item">
+                        <div class="catalog__item-img">
+                            <img src="img/catalog-item.png" alt="catalog item">
+                        </div>
+                        <span class="catalog__item-group">Диспенсеры</span>
+                        <span class="catalog__item-title">ДИСПЕНСЕР 01</span>
+                        <div class="catalog__item-menu">
+                            <a href="#">
+                                <span class="icon-details"></span>
+                                <span class="catalog__item-details"></span>Подробнее
+                            </a>
+                            <a href="#">
+                                <span class="icon-shop"></span>
+                                <span class="catalog__item-order"></span>Заказать
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>
+
+<footer id="footer">
+    <h2 class="main-title"><span></span>СВЯЖИТЕСЬ С НАМИ</h2>
+    <div class="pure-g">
+        <div class="pure-u-1-3 footer-info__wrapper">
+            <div class="footer-info">
+                <div class="footer-info__item">
+                    Россия, г. Ростов-на-Дону, <br>
+                    пр-т. Ворошиловский, 59/18
+                    <div class="footer-info__icon"><span class="icon-location"></span></div>
+                </div>
+
+                <div class="footer-info__item">
+                    (863) 255-97-11 <br>
+                    (многоканальный)
+                    <div class="footer-info__icon"><span class="icon-tel"></span></div>
+                </div>
+
+                <div class="footer-info__item">
+                    info@wostokzapad.ru
+                    <div class="footer-info__icon"><span class="icon-link"></span></div>
+                </div>
+
+                <div class="footer-info__item">
+                    <ul class="footer-info__list">
+                        <li class="foooter-info__list-item">пн-пт <span class="week">с 09:00 до 19:00</span></li>
+                        <li class="foooter-info__list-item">сб <span class="saturday">с 10:00 до 17:00</span></li>
+                        <li class="foooter-info__list-item">вс <span class="a#">дной</span></li>
+                    </ul>
+                    <div class="footer-info__icon"><span class="icon-clock"></span></div>
+                </div>
+            </div>
+
+            <div class="socials">
+                <a href="#"><span class="icon-twitter"></span></a>
+                <a href="#"><span class="icon-insta"></span></a>
+                <a href="#"><span class="icon-fb"></span></a>
+                <a href="#"><span class="icon-youtube"></span></a>
+                <a href="#"><span class="icon-vk"></span></a>
+            </div>
+
+        </div>
+        <div class="pure-u-2-3">
+            <div id="map"></div>
+
+        </div>
+    </div>
+</footer>
+
+<script src="js/vendor/jquery-1.11.2.min.js"></script>
+<script src="js/wow.min.js"></script>
+<script src="js/vendor/slick.min.js"></script>
+<script src="js/vendor/jquery.formstyler.min.js"></script>
+<script src="js/vendor/lightcase.js"></script>
+<script src="js/vendor/jquery-ui.min.js"></script>
+<script src="js/main.js"></script>
+
+</body>
+</html>

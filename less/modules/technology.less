@@ -1,0 +1,274 @@
+.technology{
+  background: @greyColor url("@{rootUrl}technology-bg.png") no-repeat center;
+  -webkit-background-size: cover;
+  background-size: cover ;
+  margin-top: -4px;
+  padding-top: 4px;
+  padding-bottom: 22px;
+  .main-title{
+    margin: 20px 0 45px -19px;
+    color: #fff;
+    &:after {
+      margin: 11px 16px 0 0;
+    }
+    &:before{
+      margin: 11px 0 0 16px;
+    }
+    span{
+      margin: 8px 0 0 -3px;
+    }
+  }
+  .h4{
+    margin:0;
+    letter-spacing: -0.1px;
+    line-height: 1.3;
+  }
+}
+
+.technology__item{
+  margin-bottom: 24px;
+}
+
+.technology__item-left{
+  padding-right:37px;
+}
+
+.technology__item-right{
+  padding-left: 37px;
+}
+
+.technology__subheading {
+  font-size: 24px;
+  color: @redColor3;
+  text-transform: uppercase;
+  font-weight: normal;
+  margin: 10px 0 0 0;
+  letter-spacing: -0.2px;
+  line-height: 1.4;
+  &.text-right {
+    text-align: right;
+  }
+  &.text-left {
+    text-align: left;
+  }
+}
+
+.technology__list-comment{
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #fff;
+  line-height: 1.25;
+  margin-top: 2px;
+}
+
+.technology__icon{
+  border: 1px dashed #fff;
+  display: inline-block;
+  padding: 3px;
+  .square(130px);
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  [class*="icon"]{
+    font-size: 125px;
+    color: @redColor3;
+  }
+  .icon-metal{
+    margin-left: 15px;
+  }
+  .icon-glass{
+    font-size: 108px;
+    margin-top: 7px;
+  }
+  .icon-materials-print{
+    font-size: 100px;
+    margin-top: 14px;
+  }
+}
+
+.technology__number-icon{
+  position: absolute;
+  .square(35px);
+  .rotate(45deg);
+  top: -17px;
+  left: -18px;
+  background-color: transparent;
+  z-index: 10;
+  border: 1px solid #fff;
+  &:after{
+    display: block;
+    font-size: 24px;
+    color: @redColor3;
+    .rotate(-45deg);
+  }
+}
+
+.technology__number-icon-1{
+  background-color: #3b4e5f;
+  &:after{
+    content: "1";
+  }
+}
+
+.technology__number-icon-2{
+  background-color: #516576;
+  &:after{
+    content: "3";
+  }
+}
+
+.technology__number-icon-3{
+  background-color: #3d5062;
+  &:after{
+    content: "2";
+  }
+}
+
+.technology__number-icon-4{
+  background-color: #374a5c;
+  &:after{
+  content: "4";
+  }
+}
+
+.technology__list{
+  padding: 0;
+  margin-top: 10px;
+  line-height: 1.3;
+
+  &.technology__item-right{
+    padding: 0;
+    .technology__list-item{
+      &:before{
+        content: '>';
+        display: inline-block;
+        font-size: 24px;
+        color: @redColor3;
+        position: absolute;
+        top: -6px;
+        left: -16px;
+        bottom: 0;
+        margin: auto;
+      }
+    }
+  }
+
+  &.technology__item-left {
+    padding: 0;
+    .technology__list-item {
+      &:after {
+        content: '<';
+        display: inline-block;
+        font-size: 24px;
+        color: @redColor3;
+        position: absolute;
+        top: -6px;
+        right: -16px;
+        bottom: 0;
+        margin: auto;
+      }
+    }
+  }
+}
+
+
+
+.technology__list-item{
+  font-size: 14px;
+  color: #fff;
+  letter-spacing: 0.05px;
+  list-style: none;
+  position: relative;
+}
+
+.technology__line-wrap {
+  position: relative;
+}
+
+.technology__lines{
+  position: absolute;
+  width:251px;
+  left: -16px;
+  top: 56px;
+  height:377px;
+}
+
+.technology__line-1,
+.technology__line-2,
+.technology__line-3 {
+  position: absolute;
+}
+
+.technology__line-1,
+.technology__line-3 {
+  left:0;
+  width:0;
+  height:4px;
+  background: url("@{rootUrl}technology-line-1.png") no-repeat center left;
+}
+
+.technology__line-1 {
+  top:0;
+}
+
+.technology__line-3 {
+  bottom:0;
+}
+
+.technology__line-2 {
+  left: 2px;
+  top: 4px;
+  width:248px;
+  height:0;
+  background: url("@{rootUrl}technology-line-2.png") no-repeat center top;
+}
+
+.th-line-v {
+  animation-name: th-line-v;
+  animation-fill-mode: both;
+}
+
+.th-line-h {
+  animation-name: th-line-h;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes th-line-v {
+  0% {
+    width:0;
+  }
+
+  100% {
+    width:251px;
+  }
+}
+
+@keyframes th-line-v {
+  0% {
+    width:0;
+  }
+
+  100% {
+    width:251px;
+  }
+}
+
+@-webkit-keyframes th-line-h {
+  0% {
+    height:0;
+  }
+
+  100% {
+    height:368px;
+  }
+}
+
+@keyframes th-line-h {
+  0% {
+    height:0;
+  }
+
+  100% {
+    height:368px;
+  }
+}

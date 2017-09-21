@@ -1,0 +1,372 @@
+.glass-page__title{
+    margin-top: 6px;
+    margin-bottom: 9px;
+}
+
+.glass__animation{
+  max-width: 100%;
+  [poster] {
+    width: 100%;
+    height: 100%
+  }
+}
+
+.about-glass__content {
+  .h1 {
+    text-transform: none;
+  }
+  p {
+    //letter-spacing: 0.2px;
+    line-height: 1.3;
+    font-size: 16px;
+  }
+}
+.about-glass__content1 {
+  .h1 {
+    margin-top: 20px;
+    margin-bottom: 0;
+  }
+  p {
+    margin-top: 11px;
+    margin-bottom: 0;
+  }
+}
+.about-glass__content2 {
+  .h1 {
+    margin-top: 2px;
+    margin-bottom: 0;
+  }
+  p {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+.glass-products{
+  background-color: #f6f6f6;
+  padding-top: 16px;
+  margin-top: 13px;
+  padding-bottom: 59px;
+}
+
+.gp__circle-big{
+  .square(580px);
+  border: 2px solid @redColor;
+  background-color: #fff;
+  z-index: 1;
+  .border-radius(50%);
+  position: relative;
+}
+
+.gp__circle-big--left{
+  .gp__img-bg{
+    background: url("@{rootUrl}page4-circle1.png") no-repeat center;
+    -webkit-background-size: contain;
+  }
+}
+
+.gp__img-bg{
+  background-size: contain;
+  .size(490px, 528px);
+  z-index: 10;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 36px;
+  margin: auto;
+}
+
+.gp__circle-small{
+  display: inline-block;
+  .square(21px);
+  .border-radius(50%);
+  background-color: #e3e3e3;
+  border: 2px solid @redColor;
+  position: absolute;
+}
+
+.gp__circle-small--left1{
+  top: 16.5%;
+  right: 9%;
+}
+
+.gp__circle-small--left2{
+  top: 26%;
+  right: 3%;
+}
+
+.gp__circle-small--left3{
+  top: 36.5%;
+  right: -1%;
+}
+
+.gp__circle-small--left4{
+  top: 48.1%;
+  right: -2%;
+}
+
+.gp__circle-small--left5{
+  bottom: 36.1%;
+  right: -0.5%;
+}
+
+.gp__circle-small--left6{
+  bottom: 25.1%;
+  right: 3.5%;
+}
+
+.gp__circle-small--left7{
+  bottom: 14.5%;
+  right: 10.5%;
+}
+
+.glass-products__list{
+  padding-top: 24px;
+  padding-left: 95px;
+}
+
+.gp__list-item{
+  list-style: none;
+  font-size: 24px;
+  padding-left: 72px;
+  margin-bottom: 26px;
+  line-height: 1.3;
+  position: relative;
+  [class*="icon"]{
+    font-size: 57px;
+    color: @redColor;
+    position: absolute;
+    //left: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+  }
+  .icon-mob-phone{
+    top: -6px;
+    left: 0;
+  }
+  .icon-laptop{
+    left: -22px;
+    font-size: 38px;
+    top: 19px;
+  }
+  .icon-jewelery{
+    font-size: 62px;
+    left: -14px;
+  }
+  .icon-stationary{
+    left: -10px;
+  }
+  .icon-wineglass{
+    font-size: 43px;
+    left: 0;
+  }
+  .icon-shoes{
+    font-size: 44px;
+    left: -11px;
+    top: 12px;
+  }
+  .icon-grocery{
+    left: 0;
+  }
+}
+
+.glass-products__bottom-part{
+  margin-top: 61px;
+  .pure-u-1-2:nth-of-type(1){
+    padding-right: 99px;
+    padding-top: 19px;
+  }
+  .glass-products__list{
+    padding-left: 0;
+    padding-top: 0;
+    margin-top: -11px;
+  }
+  .gp__list-item{
+    padding-left: 0;
+    text-align: right;
+    padding-right: 87px;
+  }
+  .icon-holders{
+    font-size: 55px;
+    right: 8px;
+  }
+
+  .icon-booklets{
+    font-size: 69px;
+    right: 9px;
+  }
+}
+
+.gp__description{
+  font-size: 16px;
+  text-align: justify;
+  line-height: 1.4;
+}
+
+.gp__circle-big--right{
+  margin-left: -37px;
+  .gp__img-bg{
+    background: url("@{rootUrl}page4-circle2.png") no-repeat center;
+    -webkit-background-size: contain;
+    top: -57px;
+    left: 22px;
+  }
+}
+
+.gp__circle-small--right1{
+  top: 63%;
+}
+
+.gp__circle-small--right2{
+  bottom: 20.5%;
+  left: 7%;
+}
+
+.about-glass__content3{
+  margin-bottom: 14px;
+  .h1{
+    margin-top: 12px;
+    margin-bottom: 8px;
+  }
+  p{
+    margin-bottom: 0;
+  }
+}
+
+.catalog{
+  padding-top: 22px;
+  background-color: #eceef3;
+  padding-bottom: 9px;
+  .h1{
+    margin-top: -12px;
+  }
+}
+
+.catalog__slider{
+  margin-top: 38px;
+}
+
+.catalog__slider-slide {
+  img {
+    margin: auto;
+    max-height: 203px;
+  }
+  a{
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  &:hover >.catalog__slide-info,
+  &.active >.catalog__slide-info{
+    color: @redColor;
+  }
+}
+
+.catalog__slide-info{
+  display: block;
+  font-size: 14px;
+  text-align: center;
+  .transition(0.3s all ease);
+}
+
+.catalog__slider{
+  .slick-next,
+  .slick-prev{
+    -webkit-background-size: cover;
+    background-size: cover ;
+    .size(43px, 82px);
+    &:before{
+      content: "";
+    }
+  }
+  .slick-next {
+    right: 19px;
+    background: url("@{rootUrl}page4-slider-control-right.png") no-repeat center;
+  }
+  .slick-prev {
+    left: 0;
+    background: url("@{rootUrl}page4-slider-control-left.png") no-repeat center;
+  }
+}
+
+.catalog__subheading{
+  text-transform: none;
+  margin-top: 47px;
+  margin-bottom: 22px;
+  font-size: 36px;
+}
+
+.catalog__item{
+  padding: 33px 10px 6px 10px;
+  margin-bottom: 51px;
+  width: 90%;
+  .box-shadow(  -2px 4px 5px 0px rgba(50, 50, 50, 0.1));
+  background-color: #fff;
+  position: relative;
+  &:hover{
+    .catalog__item-menu {
+      display: block;
+    }
+  }
+}
+
+.catalog__item-img{
+  margin: auto;
+  text-align: center;
+}
+
+.catalog__item-group{
+  display: block;
+  font-size: 12px;
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: -6px;
+}
+
+.catalog__item-title{
+  display: block;
+  font-size: 15px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.catalog__item-menu{
+  display: none;
+  position: absolute;
+  top:50%;
+  left: 0;
+  margin: auto;
+  z-index: 20;
+  width: 100%;
+  //height: 100%;
+  text-align: center;
+  .transform(translateY(-50%));
+  a{
+    display: inline-block;
+    text-decoration: none;
+    margin-right: 12px;
+    margin-left: 12px;
+    color: #4e4e4e;
+  }
+  [class*="icon"]{
+    display: block;
+    color: #fff;
+    font-size: 35px;
+    .square(73px);
+    .border-radius(50%);
+    padding-top: 18px;
+    margin-bottom: 7px;
+  }
+  .icon-details{
+    background-color: @redColor;
+  }
+  .icon-shop{
+    background-color: #647489;
+  }
+}
+
+.glass-page__footer.main-title{
+  margin-top: 13px;
+  margin-bottom: 17px;
+}

@@ -1,0 +1,678 @@
+<!doctype html>
+<html class="no-js" lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Восток-Запад</title>
+    <meta name="description" content="">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:600&amp;subset=cyrillic-ext" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/pure-min.css">
+
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="css/grids-responsive-old-ie-min.css">
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+    <link rel="stylesheet" href="css/grids-responsive-min.css">
+    <!--<![endif]-->
+
+    <link rel="stylesheet" href="css/normalize.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" type="text/css" href="css/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="css/slick-theme.css"/>
+    <link rel="stylesheet" type="text/css" href="css/lightcase.css"/>
+    <link rel="stylesheet" href="css/jquery.formstyler.css">
+    <link rel="stylesheet" href="css/jquery-ui.min.css">
+    <link rel="stylesheet" href="css/main.css">
+
+    <!--[if lt IE 9]>
+    <script src="js/vendor/html5shiv.js"></script>
+    <![endif]-->
+</head>
+<body>
+<!--[if lt IE 8]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+<![endif]-->
+<div class="modal" id="modal-sign-up">
+    <a href="" class="modal__close"></a>
+    <div class="modal__inner">
+        <div class="modal__title">ЗАКАЖИТЕ ЗВОНОК</div>
+        <div class="modal__sub-title">МЫ ПЕРЕЗВОНИМ ВАМ В ЛЮБОЕ УДОБНОЕ ВРЕМЯ</div>
+        <p class="text-center modal__info-text">Выберите время <br>и оставьте номер телефона</p>
+
+        <div class="modal__form-inner">
+            <div class="pure-g">
+                <div class="pure-u-1-3">
+                    <div class="form-row form-row__w-icon form-row__select">
+                        <div class="form-row__icon"><i class="icon-calendar"></i></div>
+
+                        <select class="styler">
+                            <option>Сегодня</option>
+                            <option>Завтра</option>
+                            <option>Никогда))</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="pure-u-2-3">
+                    <div class="form-row range-slider">
+                        <input type="text" id="amount-time-from" value="10:00">
+                        <div id="slider-time"></div>
+                        <input type="text" id="amount-time-to" value="20:00">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row form-row__w-icon">
+                <div class="form-row__icon"><i class="icon-name"></i></div>
+                <input type="text" placeholder="Имя" onclick="this.placeholder=''" onblur="this.placeholder='Имя'">
+            </div>
+
+            <div class="form-row form-row__w-icon">
+                <div class="form-row__icon"><i class="icon-phone-handle"></i></div>
+                <input type="tel" placeholder="Телефон" onclick="this.placeholder=''" onblur="this.placeholder='Телефон'">
+            </div>
+
+
+            <div class="form-row form-row__w-icon">
+                <div class="form-row__icon"><i class="icon-envelope"></i></div>
+                <textarea placeholder="Комментарий" onclick="this.placeholder=''" onblur="this.placeholder='Комментарий'"></textarea>
+            </div>
+
+            <div class="text-center"><a href="" class="btn btn__red"><i class="icon-call-me"></i>ЖДУ ЗВОНКА</a></div>
+        </div>
+    </div>
+</div>
+
+<div id="overlay"></div>
+
+<header id="header">
+    <video autoplay class="header__video">
+        <source src="css/media/header-animation.mp4" type="video/mp4">
+        <source src="css/media/header-animation.ogg" type="video/ogg">
+    </video>
+    <div class="main-container ">
+        <div class="header__top clearfix">
+            <div class="pull-left ">
+                <a href="index.html" class="header__logo wow bounceIn" data-wow-offset="10" data-wow-delay="0.3s"
+                   data-wow-duration="2.5s"></a>
+            </div>
+
+            <div class="pull-right">
+                <nav class="header-nav">
+                    <ul class="header-list wow fadeInDown" data-wow-offset="10" data-wow-delay="1s"
+                        data-wow-duration="1s">
+                        <li class="header__list-item"><a href="#" class="header__list-link active">Новости</a></li>
+                        <li class="header__list-item"><a href="#" class="header__list-link">Компания</a></li>
+                        <li class="header__list-item"><a href="#" class="header__list-link">Продукция</a></li>
+                        <li class="header__list-item"><a href="#" class="header__list-link ">Портфолио</a></li>
+                        <li class="header__list-item"><a href="#" class="header__list-link">Технология</a></li>
+                        <li class="header__list-item"><a href="#" class="header__list-link">Контакты</a></li>
+                    </ul>
+                </nav>
+
+                <div class="header-info wow bounceIn" data-wow-offset="10" data-wow-delay="2.6s" data-wow-duration="1s">
+                    <a href="#" class="header__download-price" download><span class="icon-download"></span>Скачать
+                        прайс-лист</a>
+                    <a href="tel:(863)255-97-11" class="header__phone"><span
+                            class="icon-phone"></span>(863)255-97-11</a>
+                    <a href="#modal-sign-up" class="header__link modal-btn">Заказать звонок</a>
+                </div>
+            </div>
+        </div>
+        <div class="header-welcome">
+            <div class="h1 header__h1 wow fadeInUp" data-wow-offset="10" data-wow-delay="0.5s" data-wow-duration="1s">
+                Рекламно-производственная
+                компания "восток-запад"
+            </div>
+            <h3 class="h3 header__h3 wow fadeInDown" data-wow-offset="10" data-wow-delay="0.7s" data-wow-duration="1s">
+                POS материалы, рекламная и сувенирная продукция
+                Разработка, производство, поставка по РФ</h3>
+        </div>
+    </div>
+    <nav class="main-menu wow fadeInUp" data-wow-offset="10" data-wow-delay="0.9s" data-wow-duration="0.3s">
+        <div class="main-container">
+            <ul class="main-menu__list">
+                <li class="main-menu__list-item">
+                    <a href="#" class="main-menu__list--link active">
+                                        <span class="main-menu__icon-wrap wow zoomIn" data-wow-delay="1.2s">
+                                            <span class="main-menu__icon icon-posmaterials"></span>
+                                            <span class="main-menu__icon main-menu__icon_active icon-posmaterials_active"></span>
+                                        </span>
+                        <span class="main-menu__text wow fadeInUp" data-wow-delay="1.4s">POS материалы</span>
+                    </a>
+                </li>
+                <li class="main-menu__list-item">
+                    <a href="#" class="main-menu__list--link">
+                                        <span class="main-menu__icon-wrap wow zoomIn" data-wow-delay="1.5s">
+                                            <span class="main-menu__icon icon-souvenirs"></span>
+                                            <span class="main-menu__icon main-menu__icon_active icon-souvenirs_active"></span>
+                                        </span>
+                        <span class="main-menu__text wow fadeInUp" data-wow-delay="1.7s">сувенирная продукция</span>
+                    </a>
+                </li>
+                <li class="main-menu__list-item">
+                    <a href="#" class="main-menu__list--link">
+                                        <span class="main-menu__icon-wrap wow zoomIn" data-wow-delay="1.8s">
+                                            <span class="main-menu__icon icon-print"></span>
+                                            <span class="main-menu__icon main-menu__icon_active icon-print_active"></span>
+                                        </span>
+                        <span class="main-menu__text wow fadeInUp" data-wow-delay="2s">полиграфия</span>
+                    </a>
+                </li>
+                <li class="main-menu__list-item">
+                    <a href="#" class="main-menu__list--link">
+                                        <span class="main-menu__icon-wrap wow zoomIn" data-wow-delay="2.1s">
+                                            <span class="main-menu__icon icon-advert"></span>
+                                            <span class="main-menu__icon main-menu__icon_active icon-advert_active"></span>
+                                        </span>
+                        <span class="main-menu__text wow fadeInUp" data-wow-delay="2.3s">наружная реклама</span>
+                    </a>
+                </li>
+                <li class="main-menu__list-item">
+                    <a href="#" class="main-menu__list--link">
+                                        <span class="main-menu__icon-wrap wow zoomIn" data-wow-delay="2.4s">
+                                            <span class="main-menu__icon icon-inet"></span>
+                                            <span class="main-menu__icon main-menu__icon_active icon-inet_active"></span>
+                                        </span>
+                        <span class="main-menu__text wow fadeInUp" data-wow-delay="2.6s">интернет магазин</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<main class="main">
+    <div class="sidebar-menu">
+        <a href="#" class="sidebar-menu__item">
+            <div class="sidebar-menu__icon"><span class="icon-sound"></span></div>
+            <div class="sidebar-menu__text">Новости</div>
+        </a>
+        <a href="#" class="sidebar-menu__item">
+            <div class="sidebar-menu__icon"><span class="icon-login"></span></div>
+            <div class="sidebar-menu__text">Компания</div>
+        </a>
+        <a href="#" class="sidebar-menu__item">
+            <div class="sidebar-menu__icon"><span class="icon-pen"></span></div>
+            <div class="sidebar-menu__text">Продукция</div>
+        </a>
+        <a href="#" class="sidebar-menu__item">
+            <div class="sidebar-menu__icon"><span class="icon-bag"></span></div>
+            <div class="sidebar-menu__text">Портфолио</div>
+        </a>
+        <a href="#" class="sidebar-menu__item">
+            <div class="sidebar-menu__icon"><span class="icon-settings"></span></div>
+            <div class="sidebar-menu__text">Технологии</div>
+        </a>
+        <a href="#" class="sidebar-menu__item">
+            <div class="sidebar-menu__icon"><span class="icon-email"></span></div>
+            <div class="sidebar-menu__text">Контакты</div>
+        </a>
+    </div>
+
+    <h2 class="h1 salesPage__title">ОФОРМЛЕНИЕ МЕСТ ПРОДАЖ</h2>
+
+    <video autoplay class="sales__animation" poster="img/page5-sales-places-animation.png">
+        <!--<source src="css/media/" type="video/mp4">-->
+        <!--<source src="css/media/" type="video/ogg">-->
+    </video>
+
+    <div class="main-container">
+        <div class="design-item design-item__stand">
+            <h2 class="h2 design-item__title"><span></span>ТОРГОВЫЕ СТОЙКИ </h2>
+            <p class="design-item__content">
+                Ни одна современная точка продаж не может обойтись без функционального и надежного
+                торгово-сервисного оборудования. Торговые стойки, демонстраторы, экспозиторы, дисплеи
+                , позволяющие оптимально использовать пространство торговой площади и демонстрирующие
+                «товар лицом» — одни из самых незаменимых и распространенных P.O.S. материалов
+                <br>
+                <br>
+                Основные назначение торговых стоек и стоек-дисплеев — организация пространства точки
+                продаж, наглядная демонстрация и удобная выдача продукции покупателю. Также важны рекламные
+                и информирующие функция торговых стоек, обеспечивающие удобный поиск и выделяющая товар из
+                массы аналогичной конкурирующей продукции. Промостойки выполняют рекламную и информирующую
+                функцию.
+                <br>
+                <br>
+                Компания «Восток-Запад» имеет многолетний опыт разработки и производства
+                торгово-сервисных стоек. В своих разработках мы используем пластики,
+                алюминиевые композиты, стекло, металл, дерево, ЛДСП, МДФ; применяем
+                технологии 3-д фрезерования, лазерной резки и гравировки, вакуумной
+                формовки, трафаретной печати и прямой УФ печати на твердых поверхностях.
+            </p>
+
+            <div class="pure-g di__stand-examples">
+                <div id="di__stand-example1" class="pure-u-1-4 di__stand-example active">
+                            <span class="stand-example__title">Торговые стойки
+                                <br> с металлокаркасом</span>
+                    <div class="stand-example__img">
+                        <span class="stand-example__icon stand-example__icon1"></span>
+                        <span class="stand-example__circle-small"></span>
+                    </div>
+                </div>
+                <div id="di__stand-example2" class="pure-u-1-4 di__stand-example ">
+                            <span class="stand-example__title">Торговые стойки
+                                <br> из ЛДСП, МДФ</span>
+                    <div class="stand-example__img">
+                        <span class="stand-example__icon stand-example__icon2"></span>
+                        <span class="stand-example__circle-small"></span>
+                    </div>
+                </div>
+                <div id="di__stand-example3" class="pure-u-1-4 di__stand-example">
+                            <span class="stand-example__title">Дисплеи.
+                                <br> Стойки «парус»</span>
+                    <div class="stand-example__img ">
+                        <span class="stand-example__icon stand-example__icon3"></span>
+                        <span class="stand-example__circle-small"></span>
+                    </div>
+                </div>
+                <div id="di__stand-example4" class="pure-u-1-4 di__stand-example">
+                            <span class="stand-example__title">Нестандартные
+                                <br> решения </span>
+                    <div class="stand-example__img">
+                        <span class="stand-example__icon stand-example__icon4"></span>
+                        <span class="stand-example__circle-small"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="stand-example__details">
+        <div class="di__stand-details active" id="di__stand-details1">
+            <div class="main-container pure-g">
+                <div class="pure-u-1-2 stand-example__slider">
+                    <div><img src="img/page5-stand-slider1-img1.png" alt="stand example"></div>
+                    <div><img src="img/page5-stand-slider1-img2.png" alt="stand example"></div>
+                    <div><img src="img/page5-stand-slider1-img3.png" alt="stand example"></div>
+                </div>
+
+                <div class="pure-u-1-2 stand-example__info">
+                    <div class="stand-example__subheading">Торговые стойки
+                        <br> с металлическим каркасом
+                    </div>
+                    <p>Торговая стойка, как правило, представляет из себя
+                        стеллаж для выкладки товара, оформленный согласно руководствам
+                        визуальной идентификации бренда выставляемой продукции. Пропорции,
+                        габариные размеры, материалы, цвета стоки и ее элементов могут варьироватся
+                        в широких диапазонах в зависимости от предъявляемых к ней требований.
+                        <br>
+                        <br>
+                    </p>
+
+                    <span class="stand-example__feature">Каркас стойки.</span>
+                    <p class="stand-example__feature-description">Как правило, это металлическая
+                        сварная конструкция с возможностью честичной или полной сборки/разборки.</p>
+                    <span class="stand-example__feature">Топер стойки.</span>
+                    <p class="stand-example__feature-description">Плоский или объемный элемент
+                        любых размеров, форм и расцветок. Материалы: пластики, оргстекло, МДФ,
+                        металл, оргстекло, ЛДСП, композиты.</p>
+                    <span class="stand-example__feature"> Полки</span>
+                    <p class="stand-example__feature-description"> ЛДСП, МДФ, металл,
+                        пластики. Возможно предусмотреть регулируемую высоту и сменное
+                        количество полок.</p>
+                    <span class="stand-example__feature">Облицовка</span>
+                    <p class="stand-example__feature-description"> Как правило, алюминиевые
+                        композиты, ЛДСП, МДФ, оргстекло, полистирол или ПВХ пластики с
+                        прямой полноцветной UV-печатью или аппликацией.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="di__stand-details" id="di__stand-details2">
+            <div class="main-container pure-g">
+                <div class="pure-u-1-2 stand-example__slider">
+                    <div><img src="img/page5-stand-slider2-img1.png" alt="stand example"></div>
+                    <div><img src="img/page5-stand-slider2-img2.png" alt="stand example"></div>
+                    <div><img src="img/page5-stand-slider2-img3.png" alt="stand example"></div>
+                </div>
+
+                <div class="pure-u-1-2 stand-example__info">
+                    <div class="stand-example__subheading">Торговые стойки
+                        <br> из ЛДСП, МДФ
+                    </div>
+                    <p>Безкаркасные стойки, собранные на мебельныз
+                        стяжках. Широкая палитра расцветок поверхности ЛДСП.
+                        Такие стойки обычно изготавливаются полностью разборными,
+                        что делает удобным их хранение и транспортировку. Нанесение
+                        изображений на поверхности производится прямой УФ печатью, прикаткой
+                        полноцветного иображения, пластификацией или финиловой аппликацией.
+                        <br>
+                        <br>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="di__stand-details" id="di__stand-details3">
+            <div class="main-container pure-g">
+                <div class="pure-u-1-2 stand-example__slider">
+                    <div><img src="img/page5-stand-slider3-img1.png" alt="stand example"></div>
+                    <div><img src="img/page5-stand-slider3-img2.png" alt="stand example"></div>
+                    <div><img src="img/page5-stand-slider3-img3.png" alt="stand example"></div>
+                </div>
+
+                <div class="pure-u-1-2 stand-example__info">
+                    <div class="stand-example__subheading">Дисплеи
+                        <br> стойки “парус”
+                    </div>
+                    <p> Стойки такого типа обычно применяются для выкладки
+                        печатной продукции или малогабаритных товаров. «Паруса»,
+                        как правило, оснащены не полками, а карманами из оргстекла или
+                        металлического прута, или крючками для подвеса продукции. Каркасы
+                        таких стоек, обычно складные или разборные, изготавливаются из
+                        металлической профильной трубы или толстых ПВХ пластиков. Фасады стоек
+                        — пластик, префорированный металлический лист, оргстекло.
+                        <br>
+                        <br>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="di__stand-details" id="di__stand-details4">
+            <div class="main-container pure-g">
+                <div class="pure-u-1-2 stand-example__slider">
+                    <div><img src="img/page5-stand-slider4-img1.png" alt="stand example"></div>
+                    <div><img src="img/page5-stand-slider4-img2.png" alt="stand example"></div>
+                </div>
+
+                <div class="pure-u-1-2 stand-example__info">
+                    <div class="stand-example__subheading">Нестанданртные решения
+                        <br>
+                    </div>
+                    <p> Совершенно не обязательно привязываться к привычным технологиям и
+                        стандартным ходам в изготовлении торгово-сервисного оборудования.
+                        Новые материалы и неординарные решения способны значительно расширить
+                        функционал POS материалов и улучшить их внешний вид.
+                        <br>
+                        <br>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-container">
+        <div class="design-item design-item__holders">
+            <h2 class="h2 design-item__title"><span></span>ПОДСТАВКИ ДЛЯ ПОЛИГРАФИИ</h2>
+            <p class="design-item__content">
+                Универсальный маркетинговый инструмент – стойки для рекламы или информационных
+                сообщений. Как правило, это компактные сборные конструкции, которые можно без
+                проблем перемещать с места на место. В нашем ассортименте представлено и новое
+                поколение информационных стоек под мультимедийные устройства. Такие конструкции
+                могут быть не только мобильными, но и стационарными, например, прикрепленными к стене.
+                <br>
+                <br>
+                Компания ВОсток-Запад производит качественные информационные и рекламные стойки
+                из акрила, пластика и металла.
+                <br>
+                <br>
+                В нашем каталоге можно подобрать варианты в соответствии с разными потребностями:
+                <br>
+                <br>
+                легкие и недорогие конструкции с рамками под двусторонний бумажный вкладыш;
+                стильные и надежные информационные стойки для создания планшетных киосков и терминалов;
+                функциональные изделия с лотками под листовки или каталоги, с карманами, с держателями под баннер;
+                эффектные световые модели.
+                Многие рекламные стойки можно изготовить как с горизонтальными, так и с вертикальными рамками. Также
+                есть возможность выбрать другие размеры составных частей, заказать оформление изделий. Если вам нужны
+                оригинальные информационные стойки – нестандартной формы, габаритов и комплектации, мы готовы выполнить
+                их для вас на базе имеющихся модулей или по эксклюзивному дизайн-проекту.
+            </p>
+        </div>
+    </div>
+    <div class="design-item__holders-slider-wrapper">
+        <div class="main-container">
+            <div class="design-item__holders-slider">
+                <div><img src="img/page5-holders-slider-img1.png" alt="holders"></div>
+                <div><img src="img/page5-holders-slider-img1.png" alt="holders"></div>
+                <div><img src="img/page5-holders-slider-img1.png" alt="holders"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="design-item design-item__dispenser">
+        <div class="main-container pure-g">
+            <div class="pure-u-1-4">
+                <h2 class="design-item__title">ДИСПЕНСЕРЫ</h2>
+            </div>
+            <div class="pure-u-3-4">
+                <p class="design-item__content">
+                    Для размещения множества мелких товаров на витрине используются специальные дозирующие
+                    конструкции – так называемые диспенсеры. Такие конструкции удобны и практичны – но это
+                    не единственное их преимущество. Применение диспенсеров для оформления витрин – это
+                    отличный маркетинговый ход, направленный на повышение привлекательности товара и
+                    способствующий росту продаж.
+                    <br>
+                    <br>
+                    В зависимости от принципа работы и конструктивных особенностей диспенсеры подразделяются
+                    на две категории:
+                    <br>
+                    <br>
+                    Дозирующий диспенсер предназначен для размещения товара насыпью и удобного дозирования
+                    мелкой продукции. Конструкция оснащается проемом, через который покупатель берет товар.
+                    Проем может быть открыт или закрыт заслонкой/дверцей. Диспенсер для сыпучих оснащается
+                    лопаткой. Загрузка товаров в дозатор осуществляется через крышку, расположенную в верхней
+                    части конструкции.
+                    <br>
+                    <br>
+                    Диспенсер-органайзер. Мелкие штучные товары размещаются не навалом, а в отдельных ячейках.
+                    Конструкция позволяет упорядочить большое количество предметов, расположить их в наиболее
+                    привлекательном виде. Диспенсеры такого типа могут иметь любое количество ячеек различной
+                    формы (круглые, овальные, квадратные, треугольные, прямоугольные).
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-container pure-g design-item__dosing">
+        <h2 class="design-item__title"> Дозирующие устройства используются для
+            размещения следующих товаров:</h2>
+        <div class="pure-u-1-2">
+            <div class="design-item__circle">
+                <div class="di__circle-big">
+                    <div class="di__img-bg"></div>
+                    <!--<span class="di__circle-small di__circle-small1"></span>-->
+                    <!--<span class="di__circle-small di__circle-small2"></span>-->
+                    <!--<span class="di__circle-small di__circle-small3"></span>-->
+                    <!--<span class="di__circle-small di__circle-small4"></span>-->
+                    <!--<span class="di__circle-small di__circle-small5"></span>-->
+                    <!--<span class="di__circle-small di__circle-small6"></span>-->
+                    <!--<span class="di__circle-small di__circle-small7"></span>-->
+                    <span class="di__circles-small"></span>
+                    <span class="di__circle-icon"></span>
+                </div>
+            </div>
+        </div>
+        <div class="pure-u-1-2">
+            <ul class="design-item__list">
+                <li class="di__list-item">
+                    <span class=""></span>Конфет и других мелких кондитерских изделий
+                </li>
+                <li class="di__list-item">
+                    <span class=""></span>Сувенирной продукции
+                </li>
+                <li class="di__list-item">
+                    <span class=""></span>Бижутерии
+                </li>
+                <li class="di__list-item">
+                    <span class=""></span>Канцелярских товров
+                </li>
+                <li class="di__list-item">
+                    <span class=""></span>Сигарет
+                </li>
+                <li class="di__list-item">
+                    <span class=""></span>Снеков, сыпучих продуктов
+                </li>
+                <li class="di__list-item">
+                    <span class=""></span>Медицинских материалов - бахил, перчаток,
+                    салфеток, полотенец, лекарственных препаратов в аптеках
+                </li>
+                <li class="di__list-item">
+                    <span class=""></span>Напитков
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <h2 class="design-item__title design-item__separators-title">ДЕЛИТЕЛИ ПОЛОК</h2>
+    <div class="design-item design-item__separators clearfix">
+        <div class=" design-item__separators-info">
+            <p class="design-item__content">
+                Системы организации полочного пространства (пластиковые полочные делители товара,
+                задние опоры для товара, пружинные толкатели) уже стали стандартом оформления современных
+                магазинов. Обеспечивая идеальную выкладку товара и порядок на полке, они минимизируют
+                затраты розничных сетей на персонал в торговом зале, делят товар на полке, помогают
+                легко выявить проданные позиции, снижают уровень потерь от просроченного товара.
+                <br>
+                <br>
+                Широкий выбор полочных разделителей разных высот, длин и типов позволяет оптимально и
+                с минимальными затратами укомплектовать полки для получения максимального роста продаж
+                и снижения затрат. Нами накоплен большой опыт использования полочных разделителей в
+                магазинах разных типов и мы будем рады помочь подобрать лучшую комплектацию полочных
+                разделителей, пружинных толкателей, ценникодержателей или других пос материалов для вашей
+                задачи.
+                <br>
+                <br>
+                Полочные разделители и системы подачи товара к краю полки, представленные в этом разделе,
+                обеспечивают идеальный порядок на полке и упорядоченную выкладку товара даже часы пик.
+                Широкий выбор в нашем каталоге позволяет подобрать решение для продуктов разной высоты
+                и полок самых разных размеров.
+            </p>
+        </div>
+        <div class="design-item__separators-img">
+            <div class="design-item__sepatators-ellipse"></div>
+        </div>
+    </div>
+
+    <div class="main-container">
+        <div class="design-item design-item__priceholders">
+            <h2 class="design-item__title">ЦЕННИКОДЕРЖАТЕЛИ</h2>
+            <div class="di__priceholders-img"></div>
+        </div>
+
+        <div class="pure-g di__priceholders-selection">
+            <div class="pure-u-1-4 di__priceholders-example ">
+                <span class="priceholders-example__title">Стеллажные</span>
+                <div class="priceholders-example__icon priceholders-example__icon1">
+                </div>
+            </div>
+
+            <div class="pure-u-1-4 di__priceholders-example ">
+                <span class="priceholders-example__title">На подставке</span>
+                <div class="priceholders-example__icon priceholders-example__icon2">
+                </div>
+            </div>
+
+            <div class="pure-u-1-4 di__priceholders-example ">
+                <span class="priceholders-example__title">На зажимах</span>
+                <div class="priceholders-example__icon priceholders-example__icon3">
+                </div>
+            </div>
+
+            <div class="pure-u-1-4 di__priceholders-example ">
+                <span class="priceholders-example__title">Навесные</span>
+                <div class="priceholders-example__icon priceholders-example__icon4">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h2 class="design-item__title-wobblers"> ВОБЛЕРЫ. СТОППЕРЫ </h2>
+    <div class="design-item design-item__wobblers clearfix">
+        <div class="design-item__wobblers-img"></div>
+        <div class="design-item__info design-item__wobblers-info">
+            <p class="design-item__content">
+                Слово «воблер» пришло к нам от английского глагола «wobble» , которое означает
+                «колебаться, трястись, дрожать». Этот термин прочно вошел в слэнг рекламного
+                рынка и стал использоваться для обозначения POSматериала, имеющего небольшой
+                размер и привлекательный дизайн, который крепится к любой поверхности незаметной
+                пластиковой лентой при помощи двустороннего скотча. Основное распространение
+                рекламные воблеры получили в местах розничной торговли. По мнению психологов, именно
+                яркая картинка, которая постоянно находится в движении, привлекает к себе особое
+                внимание и отлично сохраняется в подсознании потенциальных покупателей.
+                <br>
+                <br>
+                Воблеры представляют представляет собой мини-подвеску, которая закрепляется в любом
+                удобном месте прилавка, кассы, стены, стеллажа или ограждения с помощью удобной
+                гибкой ножки. Двусторонний скотч прекрасно поддерживает красочную картинку, которая
+                колышется под потоками воздуха и привлекает внимание клиента. Сегодня воблеры чаще
+                всего применяются в сочетании с другими видами POS продукции.
+                <br>
+                <br>
+                Область применения воблеров настолько огромна, что вы можете встретить их в
+                ресторанах и кафе, сетевых предприятиях общепита, на рынках, в магазинах, в
+                банках и страховых компаниях, в салонах связи, на объектах уличной торговли,
+                даже на вокзалах и у железнодорожных касс.
+            </p>
+        </div>
+
+
+    </div>
+
+</main>
+
+
+<footer id="footer">
+    <h2 class="main-title"><span></span>СВЯЖИТЕСЬ С НАМИ</h2>
+    <div class="pure-g">
+        <div class="pure-u-1-3 footer-info__wrapper">
+            <div class="footer-info">
+                <div class="footer-info__item">
+                    Россия, г. Ростов-на-Дону, <br>
+                    пр-т. Ворошиловский, 59/18
+                    <div class="footer-info__icon"><span class="icon-location"></span></div>
+                </div>
+
+                <div class="footer-info__item">
+                    (863) 255-97-11 <br>
+                    (многоканальный)
+                    <div class="footer-info__icon"><span class="icon-tel"></span></div>
+                </div>
+
+                <div class="footer-info__item">
+                    info@wostokzapad.ru
+                    <div class="footer-info__icon"><span class="icon-link"></span></div>
+                </div>
+
+                <div class="footer-info__item">
+                    <ul class="footer-info__list">
+                        <li class="foooter-info__list-item">пн-пт <span class="week">с 09:00 до 19:00</span></li>
+                        <li class="foooter-info__list-item">сб <span class="saturday">с 10:00 до 17:00</span></li>
+                        <li class="foooter-info__list-item">вс <span class="a#">дной</span></li>
+                    </ul>
+                    <div class="footer-info__icon"><span class="icon-clock"></span></div>
+                </div>
+            </div>
+
+            <div class="socials">
+                <a href="#"><span class="icon-twitter"></span></a>
+                <a href="#"><span class="icon-insta"></span></a>
+                <a href="#"><span class="icon-fb"></span></a>
+                <a href="#"><span class="icon-youtube"></span></a>
+                <a href="#"><span class="icon-vk"></span></a>
+            </div>
+
+        </div>
+        <div class="pure-u-2-3">
+            <div id="map"></div>
+
+        </div>
+    </div>
+</footer>
+
+<script src="js/vendor/jquery-1.11.2.min.js"></script>
+<script src="js/wow.min.js"></script>
+<script src="js/vendor/slick.min.js"></script>
+<script src="js/vendor/jquery.formstyler.min.js"></script>
+<script src="js/vendor/lightcase.js"></script>
+<script src="js/vendor/jquery-ui.min.js"></script>
+<script src="js/main.js"></script>
+
+</body>
+</html>

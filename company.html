@@ -1,0 +1,825 @@
+<!doctype html>
+<html class="no-js" lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Восток-Запад</title>
+    <meta name="description" content="">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:600&amp;subset=cyrillic-ext" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/pure-min.css">
+
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="css/grids-responsive-old-ie-min.css">
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+    <link rel="stylesheet" href="css/grids-responsive-min.css">
+    <!--<![endif]-->
+
+    <link rel="stylesheet" href="css/normalize.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" type="text/css" href="css/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="css/slick-theme.css"/>
+    <link rel="stylesheet" type="text/css" href="css/lightcase.css"/>
+    <link rel="stylesheet" href="css/jquery.formstyler.css">
+    <link rel="stylesheet" href="css/jquery-ui.min.css">
+    <link rel="stylesheet" href="css/main.css">
+
+    <!--[if lt IE 9]>
+    <script src="js/vendor/html5shiv.js"></script>
+    <![endif]-->
+</head>
+<body>
+<!--[if lt IE 8]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+<![endif]-->
+<div class="modal" id="modal-sign-up">
+    <a href="" class="modal__close"></a>
+    <div class="modal__inner">
+        <div class="modal__title">ЗАКАЖИТЕ ЗВОНОК</div>
+        <div class="modal__sub-title">МЫ ПЕРЕЗВОНИМ ВАМ В ЛЮБОЕ УДОБНОЕ ВРЕМЯ</div>
+        <p class="text-center modal__info-text">Выберите время <br>и оставьте номер телефона</p>
+
+        <div class="modal__form-inner">
+            <div class="pure-g">
+                <div class="pure-u-1-3">
+                    <div class="form-row form-row__w-icon form-row__select">
+                        <div class="form-row__icon"><i class="icon-calendar"></i></div>
+
+                        <select class="styler">
+                            <option>Сегодня</option>
+                            <option>Завтра</option>
+                            <option>Никогда))</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="pure-u-2-3">
+                    <div class="form-row range-slider">
+                        <input type="text" id="amount-time-from" value="10:00">
+                        <div id="slider-time"></div>
+                        <input type="text" id="amount-time-to" value="20:00">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row form-row__w-icon">
+                <div class="form-row__icon"><i class="icon-name"></i></div>
+                <input type="text" placeholder="Имя" onclick="this.placeholder=''" onblur="this.placeholder='Имя'">
+            </div>
+
+            <div class="form-row form-row__w-icon">
+                <div class="form-row__icon"><i class="icon-phone-handle"></i></div>
+                <input type="tel" placeholder="Телефон" onclick="this.placeholder=''"
+                       onblur="this.placeholder='Телефон'">
+            </div>
+
+
+            <div class="form-row form-row__w-icon">
+                <div class="form-row__icon"><i class="icon-envelope"></i></div>
+                <textarea placeholder="Комментарий" onclick="this.placeholder=''"
+                          onblur="this.placeholder='Комментарий'"></textarea>
+            </div>
+
+            <div class="text-center"><a href="" class="btn btn__red"><i class="icon-call-me"></i>ЖДУ ЗВОНКА</a></div>
+        </div>
+    </div>
+</div>
+
+<div id="overlay"></div>
+
+<header id="header">
+    <video autoplay class="header__video">
+        <source src="css/media/header-animation.mp4" type="video/mp4">
+        <source src="css/media/header-animation.ogg" type="video/ogg">
+    </video>
+    <div class="main-container ">
+        <div class="header__top clearfix">
+            <div class="pull-left ">
+                <a href="index.html" class="header__logo wow bounceIn" data-wow-offset="10" data-wow-delay="0.3s"
+                   data-wow-duration="2.5s"></a>
+            </div>
+
+            <div class="pull-right">
+                <nav class="header-nav">
+                    <ul class="header-list wow fadeInDown" data-wow-offset="10" data-wow-delay="1s"
+                        data-wow-duration="1s">
+                        <li class="header__list-item"><a href="#" class="header__list-link active">Новости</a></li>
+                        <li class="header__list-item"><a href="#" class="header__list-link">Компания</a></li>
+                        <li class="header__list-item"><a href="#" class="header__list-link">Продукция</a></li>
+                        <li class="header__list-item"><a href="#" class="header__list-link ">Портфолио</a></li>
+                        <li class="header__list-item"><a href="#" class="header__list-link">Технология</a></li>
+                        <li class="header__list-item"><a href="#" class="header__list-link">Контакты</a></li>
+                    </ul>
+                </nav>
+
+                <div class="header-info wow bounceIn" data-wow-offset="10" data-wow-delay="2.6s" data-wow-duration="1s">
+                    <a href="#" class="header__download-price" download><span class="icon-download"></span>Скачать
+                        прайс-лист</a>
+                    <a href="tel:(863)255-97-11" class="header__phone"><span
+                            class="icon-phone"></span>(863)255-97-11</a>
+                    <a href="#modal-sign-up" class="header__link modal-btn">Заказать звонок</a>
+                </div>
+            </div>
+        </div>
+        <div class="header-welcome">
+            <div class="h1 header__h1 wow fadeInUp" data-wow-offset="10" data-wow-delay="0.5s" data-wow-duration="1s">
+                Рекламно-производственная
+                компания "восток-запад"
+            </div>
+            <h3 class="h3 header__h3 wow fadeInDown" data-wow-offset="10" data-wow-delay="0.7s" data-wow-duration="1s">
+                POS материалы, рекламная и сувенирная продукция
+                Разработка, производство, поставка по РФ</h3>
+        </div>
+    </div>
+    <nav class="main-menu wow fadeInUp" data-wow-offset="10" data-wow-delay="0.9s" data-wow-duration="0.3s">
+        <div class="main-container">
+            <ul class="main-menu__list">
+                <li class="main-menu__list-item">
+                    <a href="#" class="main-menu__list--link active">
+                                        <span class="main-menu__icon-wrap wow zoomIn" data-wow-delay="1.2s">
+                                            <span class="main-menu__icon icon-posmaterials"></span>
+                                            <span class="main-menu__icon main-menu__icon_active icon-posmaterials_active"></span>
+                                        </span>
+                        <span class="main-menu__text wow fadeInUp" data-wow-delay="1.4s">POS материалы</span>
+                    </a>
+                </li>
+                <li class="main-menu__list-item">
+                    <a href="#" class="main-menu__list--link">
+                                        <span class="main-menu__icon-wrap wow zoomIn" data-wow-delay="1.5s">
+                                            <span class="main-menu__icon icon-souvenirs"></span>
+                                            <span class="main-menu__icon main-menu__icon_active icon-souvenirs_active"></span>
+                                        </span>
+                        <span class="main-menu__text wow fadeInUp" data-wow-delay="1.7s">сувенирная продукция</span>
+                    </a>
+                </li>
+                <li class="main-menu__list-item">
+                    <a href="#" class="main-menu__list--link">
+                                        <span class="main-menu__icon-wrap wow zoomIn" data-wow-delay="1.8s">
+                                            <span class="main-menu__icon icon-print"></span>
+                                            <span class="main-menu__icon main-menu__icon_active icon-print_active"></span>
+                                        </span>
+                        <span class="main-menu__text wow fadeInUp" data-wow-delay="2s">полиграфия</span>
+                    </a>
+                </li>
+                <li class="main-menu__list-item">
+                    <a href="#" class="main-menu__list--link">
+                                        <span class="main-menu__icon-wrap wow zoomIn" data-wow-delay="2.1s">
+                                            <span class="main-menu__icon icon-advert"></span>
+                                            <span class="main-menu__icon main-menu__icon_active icon-advert_active"></span>
+                                        </span>
+                        <span class="main-menu__text wow fadeInUp" data-wow-delay="2.3s">наружная реклама</span>
+                    </a>
+                </li>
+                <li class="main-menu__list-item">
+                    <a href="#" class="main-menu__list--link">
+                                        <span class="main-menu__icon-wrap wow zoomIn" data-wow-delay="2.4s">
+                                            <span class="main-menu__icon icon-inet"></span>
+                                            <span class="main-menu__icon main-menu__icon_active icon-inet_active"></span>
+                                        </span>
+                        <span class="main-menu__text wow fadeInUp" data-wow-delay="2.6s">интернет магазин</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<main class="main main-company">
+    <div class="sidebar-menu">
+        <a href="#" class="sidebar-menu__item">
+            <div class="sidebar-menu__icon"><span class="icon-sound"></span></div>
+            <div class="sidebar-menu__text">Новости</div>
+        </a>
+        <a href="#" class="sidebar-menu__item">
+            <div class="sidebar-menu__icon"><span class="icon-login"></span></div>
+            <div class="sidebar-menu__text">Компания</div>
+        </a>
+        <a href="#" class="sidebar-menu__item">
+            <div class="sidebar-menu__icon"><span class="icon-pen"></span></div>
+            <div class="sidebar-menu__text">Продукция</div>
+        </a>
+        <a href="#" class="sidebar-menu__item">
+            <div class="sidebar-menu__icon"><span class="icon-bag"></span></div>
+            <div class="sidebar-menu__text">Портфолио</div>
+        </a>
+        <a href="#" class="sidebar-menu__item">
+            <div class="sidebar-menu__icon"><span class="icon-settings"></span></div>
+            <div class="sidebar-menu__text">Технологии</div>
+        </a>
+        <a href="#" class="sidebar-menu__item">
+            <div class="sidebar-menu__icon"><span class="icon-email"></span></div>
+            <div class="sidebar-menu__text">Контакты</div>
+        </a>
+    </div>
+
+    <div class="company">
+        <div class="main-container">
+            <h2 class="h2 main-title"><span></span>КОМПАНИЯ “ВОСТОК-ЗАПАД”</h2>
+
+            <ul class="company__menu-list">
+                <li class="company__menu-list--item">
+                    <a href="#about-company" class="company__menu--list-link active"> О НАС </a>
+                </li>
+                <li class="company__menu-list--item">
+                    <a href="#work" class="company__menu--list-link">КАК МЫ РАБОТАЕМ </a>
+                </li>
+                <li class="company__menu-list--item">
+                    <a href="#clients" class="company__menu--list-link"> НАШИ КЛИЕНТЫ </a>
+                </li>
+                <li class="company__menu-list--item">
+                    <a href="#geography" class="company__menu--list-link"> ГЕОГРАФИЯ РАБОТ </a>
+                </li>
+                <li class="company__menu-list--item">
+                    <a href="#career" class="company__menu--list-link">КАРЬЕРА </a>
+                </li>
+            </ul>
+
+            <div class="about-company" id="about-company">
+                <div class="about-company__period">
+                    <span class="about-company__date">1991-1998</span>
+                    <p class="about-company__description">
+                        ООО «Восток-Запад» успешно работает на рынке рекламных
+                        услуг с 1991г. <br>
+                        В начале своей деятельности фирма позиционировали себя
+                        в рекламно–информационном сегменте. Издание и распространение
+                        журнала, штат журналистов и фотокорреспондентов,
+                        сотрудничество с модельными агентствами — позволяло нам
+                        освещать новости, яркие и интересные события в жизни нашего
+                        города Ростова-на-Дону и Юга России.
+                    </p>
+                </div>
+                <div class="about-company__period">
+                    <span class="about-company__date">1998-2001</span>
+                    <p class="about-company__description">
+                        С 1998 г. развитие собственного производства по нескольким
+                        направлениям: <br>
+                        изготовление и монтаж наружной рекламы <br>
+                        шелкотрафаретная печать <br>
+                        изготовление металлических и крупногабаритных сварных <br>
+                        конструкций <br>
+                        художественная ковка.
+                    </p>
+                </div>
+                <div class="about-company__period">
+                    <span class="about-company__date">2001-2002</span>
+                    <p class="about-company__description">
+                        <br>
+                        С 2001 г. изготовление эксклюзивных папок-меню, папок-счетов,
+                        переплетные работы.
+                        <br>
+                        <br>
+                    </p>
+                </div>
+                <div class="about-company__period">
+                    <span class="about-company__date">2002-2003</span>
+                    <p class="about-company__description">
+                        С 2002 г. мы запустили цех широкоформатной, интерьерной и
+                        оперативной печати. В арсенале появилась сольвентная и
+                        водная печать, широкоформатное ламинирование, ризография,
+                        цифровая печать, прикатка изображений к твердым поверхностям
+                        промышленным способом, печать на холсте с пост печатной
+                        обработкой. С 2003 г. - изготовление и нанесение символики
+                        на сувенирную продукцию.
+                    </p>
+                </div>
+                <div class="about-company__period ">
+                    <span class="about-company__date no-line">2005-2017</span>
+                    <p class="about-company__description">
+                        С 2005 г. - наша компания осуществляет изготовление и
+                        поставку POS- материалов и торгового оборудования по
+                        Российской Федерации. Это различные изделия из оргстекла
+                        с шелкографией, стенды, световые короба, рекламные стойки,
+                        оборудование для торговли, мини офисы и многое другое. Вся
+                        продукция изготавливается на собственном производстве, с
+                        использованием передовых технологий и современного оборудования.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="work" id="work">
+        <h2 class="h2 main-title"><span></span>КАК МЫ РАБОТАЕМ</h2>
+        <div class="main-container work__process-list">
+            <div class="pure-g work__process-list--top ">
+                <div class="pure-u-1-4 work__process-list--item">
+                    <div class="work__icon-wrapper">
+                        <span class="work__icon icon-pencilbox"></span>
+                        <span class="work__number work__number1"></span>
+                    </div>
+                    <span class="work__info">вы оставляете заявку на сайте
+                            <br>или звоните нам</span>
+                </div>
+
+                <div class="pure-u-1-4 work__process-list--item">
+                    <div class="work__icon-wrapper">
+                        <span class="work__icon icon-messenger"></span>
+                        <span class="work__number work__number2"></span>
+                    </div>
+                    <span class="work__info">наш менеджер
+                            <br>связывается с вами</span>
+                </div>
+
+                <div class="pure-u-1-4 work__process-list--item">
+                    <div class="work__icon-wrapper">
+                        <span class="work__icon icon-docs-check"></span>
+                        <span class="work__number work__number3"></span>
+                    </div>
+                    <span class="work__info">согласовываем пожелания
+                            <br> и бюджет клиента</span>
+                </div>
+
+                <div class="pure-u-1-4 work__process-list--item">
+                    <div class="work__icon-wrapper">
+                        <span class="work__icon icon-handshake"></span>
+                        <span class="work__number work__number4"></span>
+                    </div>
+                    <span class="work__info">заключаем
+                            <br>договор</span>
+                </div>
+            </div>
+
+            <div class="pure-g work__process-list--bottom">
+                <div class="pure-u-1-3 work__process-list--item">
+                    <div class="work__icon-wrapper">
+                        <span class="work__icon icon-pen-sharp"></span>
+                        <span class="work__number work__number5"></span>
+                    </div>
+                    <span class="work__info">разрабатываем
+                            <br>и реализуем проект</span>
+                </div>
+
+                <div class="pure-u-1-3 work__process-list--item">
+                    <div class="work__icon-wrapper">
+                        <span class="work__icon icon-instruments"></span>
+                        <span class="work__number work__number6"></span>
+                    </div>
+                    <span class="work__info">производим монтаж/
+                            <br>отгружаем продукцию</span>
+                </div>
+
+                <div class="pure-u-1-3 work__process-list--item">
+                    <div class="work__icon-wrapper">
+                        <span class="work__icon icon-payment"></span>
+                        <span class="work__number work__number7"></span>
+                    </div>
+                    <span class="work__info">вы производите
+                            <br>оплату</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="clients" id="clients">
+        <div class="main-container">
+            <h2 class="h2 main-title clients__title"><span></span>НАШИ КЛИЕНТЫ</h2>
+            <div class="clients__slider">
+                <div>
+                    <div class="clients__info">
+                        <div class="client__img">
+                            <img src="img/clients-slider-img1.png" alt="clients picture">
+                        </div>
+                        <span class="clients__name">ИВАН ИВАНОВ</span>
+                        <span class="cliens__description">Руководитель отдела маркетинга
+                                <br>компания “МТС”</span>
+                    </div>
+                    <p class="clients__quote">
+                        Наше сотрудничество с компанией “Восток-Запад”продолжается более пяти лет. <br>
+                        За это время было запущено множество проектов по наружной рекламе.
+                        Оперативная работа и стабильно конкурентные <br>
+                        цены убеждают обращаться вновь и вновь..
+                    </p>
+
+
+                </div>
+                <div>
+                    <div class="clients__info">
+                        <div class="client__img">
+                            <img src="img/clients-slider-img1.png" alt="clients picture">
+                        </div>
+                        <span class="clients__name">ИВАН ИВАНОВ</span>
+                        <span class="cliens__description">Руководитель отдела маркетинга
+                                <br>компания “МТС”</span>
+                    </div>
+                    <p class="clients__quote">
+                        Наше сотрудничество с компанией “Восток-Запад”продолжается более пяти лет. <br>
+                        За это время было запущено множество проектов по наружной рекламе.
+                        Оперативная работа и стабильно конкурентные <br>
+                        цены убеждают обращаться вновь и вновь..
+                    </p>
+                </div>
+                <div>
+                    <div class="clients__info">
+                        <div class="client__img">
+                            <img src="img/clients-slider-img1.png" alt="clients picture">
+                        </div>
+                        <span class="clients__name">ИВАН ИВАНОВ</span>
+                        <span class="cliens__description">Руководитель отдела маркетинга
+                                <br>компания “МТС”</span>
+                    </div>
+                    <p class="clients__quote">
+                        Наше сотрудничество с компанией “Восток-Запад”продолжается более пяти лет. <br>
+                        За это время было запущено множество проектов по наружной рекламе.
+                        Оперативная работа и стабильно конкурентные <br>
+                        цены убеждают обращаться вновь и вновь..
+                    </p>
+                </div>
+            </div>
+
+            <div class="partners clearfix">
+                <span class="partner partner1"></span>
+                <span class="partner partner2"></span>
+                <span class="partner partner3"></span>
+                <span class="partner partner4"></span>
+                <span class="partner partner5"></span>
+                <span class="partner partner6"></span>
+                <span class="partner partner7"></span>
+                <span class="partner partner8"></span>
+                <span class="partner partner9"></span>
+                <span class="partner partner10"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="geography" id="geography">
+        <div class="geography__header">
+            <div class="main-container pure-g">
+                <div class="pure-u-1-3 geography__header-item">
+                    <span class="geography__number">50</span>
+                    <span class="geography__comment">ГОРОДОВ РОССИИ</span>
+                    <div class="geography__icon-bg">
+                        <span class=" geography__icon icon-pinpoint"></span>>
+                    </div>
+                </div>
+                <div class="pure-u-1-3 geography__header-item">
+                    <span class="geography__number">130</span>
+                    <span class="geography__comment">АКТУАЛЬНЫХ БРЕНДОВ</span>
+                    <div class="geography__icon-bg">
+                        <span class="geography__icon icon-tag"></span>>
+                    </div>
+                </div>
+                <div class="pure-u-1-3 geography__header-item">
+                    <span class="geography__number">1200</span>
+                    <span class="geography__comment">РЕАЛИЗОВАННЫХ ПРОЕКТОВ</span>
+                    <div class="geography__icon-bg">
+                        <span class=" geography__icon icon-like"></span>>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="geography__body"></div>
+    </div>
+
+    <div class="career" id="career">
+        <div class="main-container">
+            <h2 class="h1 main-title"><span></span>РАБОТА В “ВОСТОК-ЗАПАД”</h2>
+            <p class="career__info">
+                «Восток-Запад» — компания для активных и энергичных,
+                для тех, кто не испытывает страха перед инновациями, кто
+                способен рождать новые интересные идеи и грамотно воплощать их в жизнь.
+                <br>
+                Если Вы хотите стать частью команды профессионалов — высылайте свое
+                резюме на <a href="mailto:info@wostokzapad.ru">info@wostokzapad.ru</a>
+                <br>
+                Задать вопрос по вакансиям и трудоустройству в компанию можно
+                по номеру +7 (863) 255-97-11
+            </p>
+
+            <div class="vacancies">
+                <div class="vacancies__title">АКТУАЛЬНЫЕ ВАКАНСИИ</div>
+                <ul class="vacancies__list ">
+                    <li class="vacancies__list-item active">
+                        <a href="#vacancyDetails1" class="vacancies__list-link ">Инженер-конструктор</a>
+                    </li>
+                    <li class="vacancies__list-item">
+                        <a href="#vacancyDetails2" class="vacancies__list-link">Дизайнер-оператор</a>
+                    </li>
+                    <li class="vacancies__list-item">
+                        <a href="#vacancyDetails3" class="vacancies__list-link">Печатник трафаретной
+                            <br> печати </a>
+                    </li>
+                    <li class="vacancies__list-item ">
+                        <a href="#vacancyDetails4" class="vacancies__list-link">Специалист
+                            <br> по гибке оргстекла</a>
+                    </li>
+                    <li class="vacancies__list-item ">
+                        <a href="#vacancyDetails5" class="vacancies__list-link">Работа для студентов</a>
+                    </li>
+                    <li class="vacancies__list-item">
+                        <a href="#vacancyDetails6" class="vacancies__list-link">Упаковщица</a>
+                    </li>
+                    <li class="vacancies__list-item">
+                        <a href="#vacancyDetails7" class="vacancies__list-link">Разнорабочие
+                            <br> (женщины)</a>
+                    </li>
+                </ul>
+
+                <div class="vacancy__details-wrapper">
+                    <div id="vacancyDetails1" class="vacancy__details active">
+                        <span class="vacancy__details-subheading">ОБЯЗАННОСТИ</span>
+                        <ul class="vacancy__details-list">
+                            <li> Разработка , техническое и технологическое сопровождение проекта.</li>
+                            <li> Проектирование конструкций из ЛДСП, металла, пластиков.</li>
+                            <li> Разработка POS-материалов, мебели, рекламных конструкций</li>
+                            <li> Сопровождение проекта от чертежа до сдачи заказчику.</li>
+                            <li>Работа в команде — менеджер проекта/дизайнер/технолог.</li>
+                        </ul>
+
+                        <span class="vacancy__details-subheading">ТРЕБОВАНИЯ</span>
+                        <ul class="vacancy__details-list">
+                            <li> Высшее техническое образование обязательно.</li>
+                            <li> Знание графических программ (Corel DRAW) желательно.</li>
+                            <li> Опыт от 3-х лет.</li>
+                        </ul>
+
+                        <span class="vacancy__details-subheading">УСЛОВИЯ РАБОТЫ</span>
+                        <ul class="vacancy__details-list">
+                            <li> Социальный пакет.</li>
+                            <li> Место работы на выбор: ЗЖМ (Всесоюзная) /Центр (Ворошиловский).</li>
+                        </ul>
+
+                        <span class="vacancy__details-subheading">АДРЕС</span>
+                        <ul class="vacancy__details-list">
+                            <li>Ростов-на-Дону, Ворошиловский проспект, 59</li>
+                        </ul>
+
+                        <span class="vacancy__details-subheading">ТИП ЗАНЯТОСТИ</span>
+                        <ul class="vacancy__details-list">
+                            <li>Полная занятость, полный день</li>
+                        </ul>
+                    </div>
+                    <div id="vacancyDetails2" class="vacancy__details">
+                        <span class="vacancy__details-subheading">ОБЯЗАННОСТИ</span>
+                        <ul class="vacancy__details-list">
+                            <li> Разработка , техническое и технологическое сопровождение проекта.</li>
+                            <li> Проектирование конструкций из ЛДСП, металла, пластиков.</li>
+                            <li> Разработка POS-материалов, мебели, рекламных конструкций</li>
+                            <li> Сопровождение проекта от чертежа до сдачи заказчику.</li>
+                            <li>Работа в команде — менеджер проекта/дизайнер/технолог.</li>
+                        </ul>
+
+                        <!--<span class="vacancy__details-subheading">ТРЕБОВАНИЯ</span>-->
+                        <!--<ul class="vacancy__details-list">-->
+                        <!--<li>  Высшее техническое образование обязательно.</li>-->
+                        <!--<li>   Знание графических программ (Corel DRAW) желательно. </li>-->
+                        <!--<li> Опыт от 3-х лет.</li>-->
+                        <!--</ul>-->
+
+                        <!--<span class="vacancy__details-subheading">УСЛОВИЯ РАБОТЫ</span>-->
+                        <!--<ul class="vacancy__details-list">-->
+                        <!--<li>    Социальный пакет.</li>-->
+                        <!--<li>    Место работы на выбор: ЗЖМ (Всесоюзная) /Центр (Ворошиловский).</li>-->
+                        <!--</ul>-->
+
+                        <!--<span class="vacancy__details-subheading">АДРЕС</span>-->
+                        <!--<ul class="vacancy__details-list">-->
+                        <!--<li>Ростов-на-Дону, Ворошиловский проспект, 59</li>-->
+                        <!--</ul>-->
+
+                        <!--<span class="vacancy__details-subheading">ТИП ЗАНЯТОСТИ</span>-->
+                        <!--<ul class="vacancy__details-list">-->
+                        <!--<li>Полная занятость, полный день</li>-->
+                        </ul>
+                    </div>
+                    <div id="vacancyDetails3" class="vacancy__details">
+                        <span class="vacancy__details-subheading">ОБЯЗАННОСТИ</span>
+                        <ul class="vacancy__details-list">
+                            <li> Разработка , техническое и технологическое сопровождение проекта.</li>
+                            <li> Проектирование конструкций из ЛДСП, металла, пластиков.</li>
+                            <li> Разработка POS-материалов, мебели, рекламных конструкций</li>
+                            <li> Сопровождение проекта от чертежа до сдачи заказчику.</li>
+                            <li>Работа в команде — менеджер проекта/дизайнер/технолог.</li>
+                        </ul>
+
+                        <span class="vacancy__details-subheading">ТРЕБОВАНИЯ</span>
+                        <ul class="vacancy__details-list">
+                            <li> Высшее техническое образование обязательно.</li>
+                            <li> Знание графических программ (Corel DRAW) желательно.</li>
+                            <li> Опыт от 3-х лет.</li>
+                        </ul>
+
+                        <span class="vacancy__details-subheading">УСЛОВИЯ РАБОТЫ</span>
+                        <ul class="vacancy__details-list">
+                            <li> Социальный пакет.</li>
+                            <li> Место работы на выбор: ЗЖМ (Всесоюзная) /Центр (Ворошиловский).</li>
+                        </ul>
+
+                        <!--<span class="vacancy__details-subheading">АДРЕС</span>-->
+                        <!--<ul class="vacancy__details-list">-->
+                        <!--<li>Ростов-на-Дону, Ворошиловский проспект, 59</li>-->
+                        <!--</ul>-->
+
+                        <!--<span class="vacancy__details-subheading">ТИП ЗАНЯТОСТИ</span>-->
+                        <!--<ul class="vacancy__details-list">-->
+                        <!--<li>Полная занятость, полный день</li>-->
+                        </ul>
+                    </div>
+                    <div id="vacancyDetails4" class="vacancy__details">
+                        <span class="vacancy__details-subheading">ОБЯЗАННОСТИ</span>
+                        <ul class="vacancy__details-list">
+                            <li> Разработка , техническое и технологическое сопровождение проекта.</li>
+                            <li> Проектирование конструкций из ЛДСП, металла, пластиков.</li>
+                            <li> Разработка POS-материалов, мебели, рекламных конструкций</li>
+                            <li> Сопровождение проекта от чертежа до сдачи заказчику.</li>
+                            <li>Работа в команде — менеджер проекта/дизайнер/технолог.</li>
+                        </ul>
+
+                        <span class="vacancy__details-subheading">ТРЕБОВАНИЯ</span>
+                        <ul class="vacancy__details-list">
+                            <li> Высшее техническое образование обязательно.</li>
+                            <li> Знание графических программ (Corel DRAW) желательно.</li>
+                            <li> Опыт от 3-х лет.</li>
+                        </ul>
+
+                        <span class="vacancy__details-subheading">УСЛОВИЯ РАБОТЫ</span>
+                        <ul class="vacancy__details-list">
+                            <li> Социальный пакет.</li>
+                            <li> Место работы на выбор: ЗЖМ (Всесоюзная) /Центр (Ворошиловский).</li>
+                        </ul>
+
+                        <span class="vacancy__details-subheading">АДРЕС</span>
+                        <ul class="vacancy__details-list">
+                            <li>Ростов-на-Дону, Ворошиловский проспект, 59</li>
+                        </ul>
+
+                        <span class="vacancy__details-subheading">ТИП ЗАНЯТОСТИ</span>
+                        <ul class="vacancy__details-list">
+                            <li>Полная занятость, полный день</li>
+                        </ul>
+                    </div>
+                    <div id="vacancyDetails5" class="vacancy__details">
+                        <span class="vacancy__details-subheading">ОБЯЗАННОСТИ</span>
+                        <ul class="vacancy__details-list">
+                            <li> Разработка , техническое и технологическое сопровождение проекта.</li>
+                            <li> Проектирование конструкций из ЛДСП, металла, пластиков.</li>
+                            <li> Разработка POS-материалов, мебели, рекламных конструкций</li>
+                            <li> Сопровождение проекта от чертежа до сдачи заказчику.</li>
+                            <li>Работа в команде — менеджер проекта/дизайнер/технолог.</li>
+                        </ul>
+
+                        <span class="vacancy__details-subheading">ТРЕБОВАНИЯ</span>
+                        <ul class="vacancy__details-list">
+                            <li> Высшее техническое образование обязательно.</li>
+                            <li> Знание графических программ (Corel DRAW) желательно.</li>
+                            <li> Опыт от 3-х лет.</li>
+                        </ul>
+
+                        <span class="vacancy__details-subheading">УСЛОВИЯ РАБОТЫ</span>
+                        <ul class="vacancy__details-list">
+                            <li> Социальный пакет.</li>
+                            <li> Место работы на выбор: ЗЖМ (Всесоюзная) /Центр (Ворошиловский).</li>
+                        </ul>
+
+                        <span class="vacancy__details-subheading">АДРЕС</span>
+                        <ul class="vacancy__details-list">
+                            <li>Ростов-на-Дону, Ворошиловский проспект, 59</li>
+                        </ul>
+
+                        <span class="vacancy__details-subheading">ТИП ЗАНЯТОСТИ</span>
+                        <ul class="vacancy__details-list">
+                            <li>Полная занятость, полный день</li>
+                        </ul>
+                    </div>
+                    <div id="vacancyDetails6" class="vacancy__details">
+                        <span class="vacancy__details-subheading">ОБЯЗАННОСТИ</span>
+                        <ul class="vacancy__details-list">
+                            <li> Разработка , техническое и технологическое сопровождение проекта.</li>
+                            <li> Проектирование конструкций из ЛДСП, металла, пластиков.</li>
+                            <li> Разработка POS-материалов, мебели, рекламных конструкций</li>
+                            <li> Сопровождение проекта от чертежа до сдачи заказчику.</li>
+                            <li>Работа в команде — менеджер проекта/дизайнер/технолог.</li>
+                        </ul>
+
+                        <span class="vacancy__details-subheading">ТРЕБОВАНИЯ</span>
+                        <ul class="vacancy__details-list">
+                            <li> Высшее техническое образование обязательно.</li>
+                            <li> Знание графических программ (Corel DRAW) желательно.</li>
+                            <li> Опыт от 3-х лет.</li>
+                        </ul>
+
+                        <span class="vacancy__details-subheading">УСЛОВИЯ РАБОТЫ</span>
+                        <ul class="vacancy__details-list">
+                            <li> Социальный пакет.</li>
+                            <li> Место работы на выбор: ЗЖМ (Всесоюзная) /Центр (Ворошиловский).</li>
+                        </ul>
+
+                        <span class="vacancy__details-subheading">АДРЕС</span>
+                        <ul class="vacancy__details-list">
+                            <li>Ростов-на-Дону, Ворошиловский проспект, 59</li>
+                        </ul>
+
+                        <span class="vacancy__details-subheading">ТИП ЗАНЯТОСТИ</span>
+                        <ul class="vacancy__details-list">
+                            <li>Полная занятость, полный день</li>
+                        </ul>
+                    </div>
+                    <div id="vacancyDetails7" class="vacancy__details">
+                        <span class="vacancy__details-subheading">ОБЯЗАННОСТИ</span>
+                        <ul class="vacancy__details-list">
+                            <li> Разработка , техническое и технологическое сопровождение проекта.</li>
+                            <li> Проектирование конструкций из ЛДСП, металла, пластиков.</li>
+                            <li> Разработка POS-материалов, мебели, рекламных конструкций</li>
+                            <li> Сопровождение проекта от чертежа до сдачи заказчику.</li>
+                            <li>Работа в команде — менеджер проекта/дизайнер/технолог.</li>
+                        </ul>
+
+                        <span class="vacancy__details-subheading">ТРЕБОВАНИЯ</span>
+                        <ul class="vacancy__details-list">
+                            <li> Высшее техническое образование обязательно.</li>
+                            <li> Знание графических программ (Corel DRAW) желательно.</li>
+                            <li> Опыт от 3-х лет.</li>
+                        </ul>
+
+                        <span class="vacancy__details-subheading">УСЛОВИЯ РАБОТЫ</span>
+                        <ul class="vacancy__details-list">
+                            <li> Социальный пакет.</li>
+                            <li> Место работы на выбор: ЗЖМ (Всесоюзная) /Центр (Ворошиловский).</li>
+                        </ul>
+
+                        <span class="vacancy__details-subheading">АДРЕС</span>
+                        <ul class="vacancy__details-list">
+                            <li>Ростов-на-Дону, Ворошиловский проспект, 59</li>
+                        </ul>
+
+                        <span class="vacancy__details-subheading">ТИП ЗАНЯТОСТИ</span>
+                        <ul class="vacancy__details-list">
+                            <li>Полная занятость, полный день</li>
+                        </ul>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+
+
+</main>
+
+<footer id="footer">
+    <h2 class="main-title"><span></span>СВЯЖИТЕСЬ С НАМИ</h2>
+    <div class="pure-g">
+        <div class="pure-u-1-3 footer-info__wrapper">
+            <div class="footer-info">
+                <div class="footer-info__item">
+                    Россия, г. Ростов-на-Дону, <br>
+                    пр-т. Ворошиловский, 59/18
+                    <div class="footer-info__icon"><span class="icon-location"></span></div>
+                </div>
+
+                <div class="footer-info__item">
+                    (863) 255-97-11 <br>
+                    (многоканальный)
+                    <div class="footer-info__icon"><span class="icon-tel"></span></div>
+                </div>
+
+                <div class="footer-info__item">
+                    info@wostokzapad.ru
+                    <div class="footer-info__icon"><span class="icon-link"></span></div>
+                </div>
+
+                <div class="footer-info__item">
+                    <ul class="footer-info__list">
+                        <li class="foooter-info__list-item">пн-пт <span class="week">с 09:00 до 19:00</span></li>
+                        <li class="foooter-info__list-item">сб <span class="saturday">с 10:00 до 17:00</span></li>
+                        <li class="foooter-info__list-item">вс <span class="a#">дной</span></li>
+                    </ul>
+                    <div class="footer-info__icon"><span class="icon-clock"></span></div>
+                </div>
+            </div>
+
+            <div class="socials">
+                <a href="#"><span class="icon-twitter"></span></a>
+                <a href="#"><span class="icon-insta"></span></a>
+                <a href="#"><span class="icon-fb"></span></a>
+                <a href="#"><span class="icon-youtube"></span></a>
+                <a href="#"><span class="icon-vk"></span></a>
+            </div>
+
+        </div>
+        <div class="pure-u-2-3">
+            <div id="map"></div>
+
+        </div>
+    </div>
+</footer>
+
+<script src="js/vendor/jquery-1.11.2.min.js"></script>
+<script src="js/wow.min.js"></script>
+<script src="js/vendor/slick.min.js"></script>
+<script src="js/vendor/jquery.formstyler.min.js"></script>
+<script src="js/vendor/lightcase.js"></script>
+<script src="js/vendor/jquery-ui.min.js"></script>
+<script src="js/main.js"></script>
+
+</body>
+</html>
+
+
+

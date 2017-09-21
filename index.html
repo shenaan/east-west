@@ -1,0 +1,1537 @@
+<!doctype html>
+<html class="no-js" lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Восток-Запад</title>
+    <meta name="description" content="">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:600&amp;subset=cyrillic-ext" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/pure-min.css">
+
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="css/grids-responsive-old-ie-min.css">
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+    <link rel="stylesheet" href="css/grids-responsive-min.css">
+    <!--<![endif]-->
+
+    <link rel="stylesheet" href="css/normalize.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" type="text/css" href="css/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="css/slick-theme.css"/>
+    <link rel="stylesheet" type="text/css" href="css/lightcase.css"/>
+    <link rel="stylesheet" href="css/jquery.formstyler.css">
+    <link rel="stylesheet" href="css/jquery-ui.min.css">
+    <link rel="stylesheet" href="css/main.css">
+
+    <!--[if lt IE 9]>
+        <script src="js/vendor/html5shiv.js"></script>
+    <![endif]-->
+</head>
+<body>
+<!--[if lt IE 8]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+<![endif]-->
+<div class="modal" id="modal-sign-up">
+    <a href="" class="modal__close"></a>
+    <div class="modal__inner">
+        <div class="modal__title">ЗАКАЖИТЕ ЗВОНОК</div>
+        <div class="modal__sub-title">МЫ ПЕРЕЗВОНИМ ВАМ В ЛЮБОЕ УДОБНОЕ ВРЕМЯ</div>
+        <p class="text-center modal__info-text">Выберите время <br>и оставьте номер телефона</p>
+
+        <div class="modal__form-inner">
+            <div class="pure-g">
+                <div class="pure-u-1-3">
+                    <div class="form-row form-row__w-icon form-row__select">
+                        <div class="form-row__icon"><i class="icon-calendar"></i></div>
+
+                        <select class="styler">
+                            <option>Сегодня</option>
+                            <option>Завтра</option>
+                            <option>Никогда))</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="pure-u-2-3">
+                    <div class="form-row range-slider">
+                        <input type="text" id="amount-time-from" value="10:00">
+                        <div id="slider-time"></div>
+                        <input type="text" id="amount-time-to" value="20:00">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row form-row__w-icon">
+                <div class="form-row__icon"><i class="icon-name"></i></div>
+                <input type="text" placeholder="Имя" onclick="this.placeholder=''" onblur="this.placeholder='Имя'">
+            </div>
+
+            <div class="form-row form-row__w-icon">
+                <div class="form-row__icon"><i class="icon-phone-handle"></i></div>
+                <input type="tel" placeholder="Телефон" onclick="this.placeholder=''" onblur="this.placeholder='Телефон'">
+            </div>
+
+
+            <div class="form-row form-row__w-icon">
+                <div class="form-row__icon"><i class="icon-envelope"></i></div>
+                <textarea placeholder="Комментарий" onclick="this.placeholder=''" onblur="this.placeholder='Комментарий'"></textarea>
+            </div>
+
+            <div class="text-center"><a href="" class="btn btn__red"><i class="icon-call-me"></i>ЖДУ ЗВОНКА</a></div>
+        </div>
+    </div>
+</div>
+
+<div id="overlay"></div>
+
+<header id="header">
+    <video autoplay class="header__video">
+        <source src="css/media/header-animation.mp4" type="video/mp4">
+        <source src="css/media/header-animation.ogg" type="video/ogg">
+    </video>
+    <div class="main-container ">
+        <div class="header__top clearfix">
+            <div class="pull-left ">
+                <a href="index.html" class="header__logo wow bounceIn" data-wow-offset="10" data-wow-delay="0.3s"
+                   data-wow-duration="2.5s"></a>
+            </div>
+
+            <div class="pull-right">
+                <nav class="header-nav">
+                    <ul class="header-list wow fadeInDown" data-wow-offset="10" data-wow-delay="1s"
+                        data-wow-duration="1s">
+                        <li class="header__list-item"><a href="#" class="header__list-link active">Новости</a></li>
+                        <li class="header__list-item"><a href="#" class="header__list-link">Компания</a></li>
+                        <li class="header__list-item"><a href="#" class="header__list-link">Продукция</a></li>
+                        <li class="header__list-item"><a href="#" class="header__list-link ">Портфолио</a></li>
+                        <li class="header__list-item"><a href="#" class="header__list-link">Технология</a></li>
+                        <li class="header__list-item"><a href="#" class="header__list-link">Контакты</a></li>
+                    </ul>
+                </nav>
+
+                <div class="header-info wow bounceIn" data-wow-offset="10" data-wow-delay="2.6s" data-wow-duration="1s">
+                    <a href="#" class="header__download-price" download><span class="icon-download"></span>Скачать
+                        прайс-лист</a>
+                    <a href="tel:(863)255-97-11" class="header__phone"><span
+                            class="icon-phone"></span>(863)255-97-11</a>
+                    <a href="#modal-sign-up" class="header__link modal-btn">Заказать звонок</a>
+                </div>
+            </div>
+        </div>
+        <div class="header-welcome">
+            <div class="h1 header__h1 wow fadeInUp" data-wow-offset="10" data-wow-delay="0.5s" data-wow-duration="1s">
+                Рекламно-производственная
+                компания "восток-запад"
+            </div>
+            <h3 class="h3 header__h3 wow fadeInDown" data-wow-offset="10" data-wow-delay="0.7s" data-wow-duration="1s">
+                POS материалы, рекламная и сувенирная продукция
+                Разработка, производство, поставка по РФ</h3>
+        </div>
+    </div>
+    <nav class="main-menu wow fadeInUp" data-wow-offset="10" data-wow-delay="0.9s" data-wow-duration="0.3s">
+        <div class="main-container">
+            <ul class="main-menu__list">
+                <li class="main-menu__list-item">
+                    <a href="#" class="main-menu__list--link active">
+                                        <span class="main-menu__icon-wrap wow zoomIn" data-wow-delay="1.2s">
+                                            <span class="main-menu__icon icon-posmaterials"></span>
+                                            <span class="main-menu__icon main-menu__icon_active icon-posmaterials_active"></span>
+                                        </span>
+                        <span class="main-menu__text wow fadeInUp" data-wow-delay="1.4s">POS материалы</span>
+                    </a>
+                </li>
+                <li class="main-menu__list-item">
+                    <a href="#" class="main-menu__list--link">
+                                        <span class="main-menu__icon-wrap wow zoomIn" data-wow-delay="1.5s">
+                                            <span class="main-menu__icon icon-souvenirs"></span>
+                                            <span class="main-menu__icon main-menu__icon_active icon-souvenirs_active"></span>
+                                        </span>
+                        <span class="main-menu__text wow fadeInUp" data-wow-delay="1.7s">сувенирная продукция</span>
+                    </a>
+                </li>
+                <li class="main-menu__list-item">
+                    <a href="#" class="main-menu__list--link">
+                                        <span class="main-menu__icon-wrap wow zoomIn" data-wow-delay="1.8s">
+                                            <span class="main-menu__icon icon-print"></span>
+                                            <span class="main-menu__icon main-menu__icon_active icon-print_active"></span>
+                                        </span>
+                        <span class="main-menu__text wow fadeInUp" data-wow-delay="2s">полиграфия</span>
+                    </a>
+                </li>
+                <li class="main-menu__list-item">
+                    <a href="#" class="main-menu__list--link">
+                                        <span class="main-menu__icon-wrap wow zoomIn" data-wow-delay="2.1s">
+                                            <span class="main-menu__icon icon-advert"></span>
+                                            <span class="main-menu__icon main-menu__icon_active icon-advert_active"></span>
+                                        </span>
+                        <span class="main-menu__text wow fadeInUp" data-wow-delay="2.3s">наружная реклама</span>
+                    </a>
+                </li>
+                <li class="main-menu__list-item">
+                    <a href="#" class="main-menu__list--link">
+                                        <span class="main-menu__icon-wrap wow zoomIn" data-wow-delay="2.4s">
+                                            <span class="main-menu__icon icon-inet"></span>
+                                            <span class="main-menu__icon main-menu__icon_active icon-inet_active"></span>
+                                        </span>
+                        <span class="main-menu__text wow fadeInUp" data-wow-delay="2.6s">интернет магазин</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<main class="main">
+    <div class="sidebar-menu">
+        <a href="#" class="sidebar-menu__item">
+            <div class="sidebar-menu__icon"><span class="icon-sound"></span></div>
+            <div class="sidebar-menu__text">Новости</div>
+        </a>
+        <a href="#" class="sidebar-menu__item">
+            <div class="sidebar-menu__icon"><span class="icon-login"></span></div>
+            <div class="sidebar-menu__text">Компания</div>
+        </a>
+        <a href="#" class="sidebar-menu__item">
+            <div class="sidebar-menu__icon"><span class="icon-pen"></span></div>
+            <div class="sidebar-menu__text">Продукция</div>
+        </a>
+        <a href="#" class="sidebar-menu__item">
+            <div class="sidebar-menu__icon"><span class="icon-bag"></span></div>
+            <div class="sidebar-menu__text">Портфолио</div>
+        </a>
+        <a href="#" class="sidebar-menu__item">
+            <div class="sidebar-menu__icon"><span class="icon-settings"></span></div>
+            <div class="sidebar-menu__text">Технологии</div>
+        </a>
+        <a href="#" class="sidebar-menu__item">
+            <div class="sidebar-menu__icon"><span class="icon-email"></span></div>
+            <div class="sidebar-menu__text">Контакты</div>
+        </a>
+    </div>
+
+    <div class="news clearfix">
+        <h2 class="h2 main-title"><span></span>НОВОСТИ</h2>
+        <div class="news-slider">
+            <div class="news-slider__slide bounceInRight " data-wow-delay="0.3s" data-wow-duration="1s">
+                <div class="pure-g">
+
+                    <a href="#" class="pure-u-1-4 news__img arrow-left"
+                       style="background-image: url(img/news-img-1.png);"></a>
+                    <div class="news__text-segment pure-u-1-4">
+                        <div class="news__date">09.11.2016 г.</div>
+                        <div class="news__subheading"><a href="#">МЕЖДУНАРОДНАЯ ВЫСТАВКА
+                            <br>"РЕКЛАМА-2016"</a>
+                        </div>
+                        <p class="news__text">В московском "Экспоцентре" прошла 24 международная
+                            специализированная выставка "Реклама-2016".
+                            Участники выставки - известные российские и зарубежные
+                            компании. Были представлены новые разработки и технологии
+                            для рекламного бизнеса. <br>
+                            Компания "Восток-Запад" не первый год участвует на этом
+                            мероприятии в качестве экспонента. К яркому и
+                            привлекательному стенду компании постоянно подходили
+                            посетители. <br>
+                            Менеджеры РПК "Восток-Запад" активно общались с гостями
+                            выставки, радостно приветствовали знакомых заказчиков,
+                            с удовольствием заводили новые знакомства.
+                        </p>
+                    </div>
+
+
+                    <a href="#" class="pure-u-1-4 news__img arrow-left"
+                       style="background-image: url(img/news-img-2.png);"></a>
+                    <div class="news__text-segment pure-u-1-4">
+                        <div class="news__date">25.04.2016 г.</div>
+                        <div class="news__subheading"><a href="#">МОСКОВСКАЯ ВЫСТАВКА
+                            <br> “ДИЗАЙН И РЕКЛАМА”</a></div>
+                        <p class="news__text">Тщательно проработанная концепция оформления стенда
+                            побуждала посетителей выставки остановиться и
+                            ознакомиться с рекламной продукцией, производимой нашей
+                            организацией. <br>
+                            Выставка предоставила уникальную возможность для
+                            сотрудников компании «Восток-Запад» побеседовать с
+                            заказчиками в неформальной обстановке, наглядно
+                            продемонстрировать новинки работ из акрила, пластика
+                            и дерева. На стенде были представлены, в частности,
+                            POS-материалы, изделия из оргстекла, часы с логотипом, гербы,
+                            папки, торгово-выставочное оборудование из дерева и
+                            металла- как "живые" образцы негабаритных POSm, так и
+                            фотографии работ.
+                        </p>
+                    </div>
+
+                    <div class="news__text-segment  pure-u-1-4">
+                        <div class="news__date">10.11.2015 г.</div>
+                        <div class="news__subheading"><a href="#">МЕЖДУНАРОДНАЯ ВЫСТАВКА
+                            <br> “РЕКЛАМА”</a>
+                        </div>
+                        <p class="news__text">«Реклама» – крупнейшая в России и странах СНГ
+                            международная выставка в сфере рекламной индустрии,
+                            которая более 20 лет определяет вектор развития отрасли;
+                            единственное событие, которое отражает все многообразие
+                            инновационных продуктов и услуг в сфере рекламы. Компания
+                            «Восток–Запад» традиционно принимает участие в этом
+                            мероприятии. На стенде нашей компании были представлены
+                            последние разработки, примеры работ и образцы выпускаемой
+                            продукции, демонстрирующие наши производственные
+                            возможности и творческий потенциал. <br>
+                            Главной целью участия в выставке компания «Восток-Запад»
+                            ставит показать потенциальным клиентам свои возможности
+                            как разработчика и изготовителя нестандартных POS-
+                            материалов и рекламных решений.
+                        </p>
+                    </div>
+                    <a href="#" class="pure-u-1-4 news__img arrow-right"
+                       style="background-image: url(img/news-img-3.png);"></a>
+
+
+                    <div class="news__text-segment pure-u-1-4">
+                        <div class="news__date">15.02.2017 г.</div>
+                        <div class="news__subheading"><a href="#">ВЫСТАВКА “ПРОДЭКСПО”
+                            <br>2017</a></div>
+                        <p class="news__text arrow-right">В начале февраля рекламно-производственная компания
+                            "Восток-Запад» приняла участие в Международной
+                            специализированной выставке "Продэкспо-2017", которая
+                            прошла в Москве. <br>
+                            В этом году на выставке были представлены более 2000
+                            экспонентов из 60 стран. <br>
+                            Компания «Восток-Запад» демонстрировала на своем стенде
+                            собственные разработки торгового оборудования и
+                            POS-материалов: торговые и рекламные стойки, модульные
+                            конструкции, демонстраторы, подставки из оргстекла, примеры
+                            оформления мест продаж.
+                        </p>
+                    </div>
+                    <a href="#" class="news__img pure-u-1-4 arrow-right"
+                       style="background-image: url(img/news-img-4.png);"></a>
+
+                </div>
+            </div>
+
+            <div class="news-slider__slide bounceInRight" data-wow-duration="1s">
+                <div class="pure-g">
+
+                    <a href="#" class="pure-u-1-4 news__img arrow-left"
+                       style="background-image: url(img/news-img-1.png);"></a>
+                    <div class="news__text-segment pure-u-1-4">
+                        <div class="news__date">09.11.2016 г.</div>
+                        <div class="news__subheading"><a href="#">МЕЖДУНАРОДНАЯ ВЫСТАВКА
+                            <br>"РЕКЛАМА-2016"</a>
+                        </div>
+                        <p class="news__text">В московском "Экспоцентре" прошла 24 международная
+                            специализированная выставка "Реклама-2016".
+                            Участники выставки - известные российские и зарубежные
+                            компании. Были представлены новые разработки и технологии
+                            для рекламного бизнеса. <br>
+                            Компания "Восток-Запад" не первый год участвует на этом
+                            мероприятии в качестве экспонента. К яркому и
+                            привлекательному стенду компании постоянно подходили
+                            посетители. <br>
+                            Менеджеры РПК "Восток-Запад" активно общались с гостями
+                            выставки, радостно приветствовали знакомых заказчиков,
+                            с удовольствием заводили новые знакомства.
+                        </p>
+                    </div>
+
+                    <a href="#" class="pure-u-1-4 news__img arrow-left"
+                       style="background-image: url(img/news-img-2.png);"></a>
+                    <div class="news__text-segment pure-u-1-4">
+                        <div class="news__date">25.04.2016 г.</div>
+                        <div class="news__subheading"><a href="#">МОСКОВСКАЯ ВЫСТАВКА
+                            <br> “ДИЗАЙН И РЕКЛАМА”</a></div>
+                        <p class="news__text">Тщательно проработанная концепция оформления стенда
+                            побуждала посетителей выставки остановиться и
+                            ознакомиться с рекламной продукцией, производимой нашей
+                            организацией. <br>
+                            Выставка предоставила уникальную возможность для
+                            сотрудников компании «Восток-Запад» побеседовать с
+                            заказчиками в неформальной обстановке, наглядно
+                            продемонстрировать новинки работ из акрила, пластика
+                            и дерева. На стенде были представлены, в частности,
+                            POS-материалы, изделия из оргстекла, часы с логотипом, гербы,
+                            папки, торгово-выставочное оборудование из дерева и
+                            металла- как "живые" образцы негабаритных POSm, так и
+                            фотографии работ.
+                        </p>
+                    </div>
+
+                    <div class="news__text-segment  pure-u-1-4">
+                        <div class="news__date">10.11.2015 г.</div>
+                        <div class="news__subheading"><a href="#">МЕЖДУНАРОДНАЯ ВЫСТАВКА
+                            <br> “РЕКЛАМА”</a>
+                        </div>
+                        <p class="news__text">«Реклама» – крупнейшая в России и странах СНГ
+                            международная выставка в сфере рекламной индустрии,
+                            которая более 20 лет определяет вектор развития отрасли;
+                            единственное событие, которое отражает все многообразие
+                            инновационных продуктов и услуг в сфере рекламы. Компания
+                            «Восток–Запад» традиционно принимает участие в этом
+                            мероприятии. На стенде нашей компании были представлены
+                            последние разработки, примеры работ и образцы выпускаемой
+                            продукции, демонстрирующие наши производственные
+                            возможности и творческий потенциал. <br>
+                            Главной целью участия в выставке компания «Восток-Запад»
+                            ставит показать потенциальным клиентам свои возможности
+                            как разработчика и изготовителя нестандартных POS-
+                            материалов и рекламных решений.
+                        </p>
+                    </div>
+                    <a href="#" class="pure-u-1-4 news__img arrow-right"
+                       style="background-image: url(img/news-img-3.png);"></a>
+
+
+                    <div class="news__text-segment pure-u-1-4">
+                        <div class="news__date">15.02.2017 г.</div>
+                        <div class="news__subheading"><a href="#">ВЫСТАВКА “ПРОДЭКСПО”
+                            <br>2017</a></div>
+                        <p class="news__text arrow-right">В начале февраля рекламно-производственная компания
+                            "Восток-Запад» приняла участие в Международной
+                            специализированной выставке "Продэкспо-2017", которая
+                            прошла в Москве. <br>
+                            В этом году на выставке были представлены более 2000
+                            экспонентов из 60 стран. <br>
+                            Компания «Восток-Запад» демонстрировала на своем стенде
+                            собственные разработки торгового оборудования и
+                            POS-материалов: торговые и рекламные стойки, модульные
+                            конструкции, демонстраторы, подставки из оргстекла, примеры
+                            оформления мест продаж.
+                        </p>
+                    </div>
+                    <a href="#" class="news__img pure-u-1-4 arrow-right"
+                       style="background-image: url(img/news-img-4.png);"></a>
+
+                </div>
+            </div>
+
+            <div class="news-slider__slide bounceInRight" data-wow-duration="1s">
+                <div class="pure-g">
+
+                    <a href="#" class="pure-u-1-4 news__img arrow-left"
+                       style="background-image: url(img/news-img-1.png);"></a>
+                    <div class="news__text-segment pure-u-1-4">
+                        <div class="news__date">09.11.2016 г.</div>
+                        <div class="news__subheading"><a href="#">МЕЖДУНАРОДНАЯ ВЫСТАВКА
+                            <br>"РЕКЛАМА-2016"</a>
+                        </div>
+                        <p class="news__text">В московском "Экспоцентре" прошла 24 международная
+                            специализированная выставка "Реклама-2016".
+                            Участники выставки - известные российские и зарубежные
+                            компании. Были представлены новые разработки и технологии
+                            для рекламного бизнеса. <br>
+                            Компания "Восток-Запад" не первый год участвует на этом
+                            мероприятии в качестве экспонента. К яркому и
+                            привлекательному стенду компании постоянно подходили
+                            посетители. <br>
+                            Менеджеры РПК "Восток-Запад" активно общались с гостями
+                            выставки, радостно приветствовали знакомых заказчиков,
+                            с удовольствием заводили новые знакомства.
+                        </p>
+                    </div>
+
+
+                    <a href="#" class="pure-u-1-4 news__img arrow-left"
+                       style="background-image: url(img/news-img-2.png);"></a>
+                    <div class="news__text-segment pure-u-1-4">
+                        <div class="news__date">25.04.2016 г.</div>
+                        <div class="news__subheading"><a href="#">МОСКОВСКАЯ ВЫСТАВКА
+                            <br> “ДИЗАЙН И РЕКЛАМА”</a></div>
+                        <p class="news__text">Тщательно проработанная концепция оформления стенда
+                            побуждала посетителей выставки остановиться и
+                            ознакомиться с рекламной продукцией, производимой нашей
+                            организацией. <br>
+                            Выставка предоставила уникальную возможность для
+                            сотрудников компании «Восток-Запад» побеседовать с
+                            заказчиками в неформальной обстановке, наглядно
+                            продемонстрировать новинки работ из акрила, пластика
+                            и дерева. На стенде были представлены, в частности,
+                            POS-материалы, изделия из оргстекла, часы с логотипом, гербы,
+                            папки, торгово-выставочное оборудование из дерева и
+                            металла- как "живые" образцы негабаритных POSm, так и
+                            фотографии работ.
+                        </p>
+                    </div>
+
+                    <div class="news__text-segment  pure-u-1-4">
+                        <div class="news__date">10.11.2015 г.</div>
+                        <div class="news__subheading"><a href="#">МЕЖДУНАРОДНАЯ ВЫСТАВКА
+                            <br> “РЕКЛАМА”</a>
+                        </div>
+                        <p class="news__text">«Реклама» – крупнейшая в России и странах СНГ
+                            международная выставка в сфере рекламной индустрии,
+                            которая более 20 лет определяет вектор развития отрасли;
+                            единственное событие, которое отражает все многообразие
+                            инновационных продуктов и услуг в сфере рекламы. Компания
+                            «Восток–Запад» традиционно принимает участие в этом
+                            мероприятии. На стенде нашей компании были представлены
+                            последние разработки, примеры работ и образцы выпускаемой
+                            продукции, демонстрирующие наши производственные
+                            возможности и творческий потенциал. <br>
+                            Главной целью участия в выставке компания «Восток-Запад»
+                            ставит показать потенциальным клиентам свои возможности
+                            как разработчика и изготовителя нестандартных POS-
+                            материалов и рекламных решений.
+                        </p>
+                    </div>
+                    <a href="#" class="pure-u-1-4 news__img arrow-right"
+                       style="background-image: url(img/news-img-3.png);"></a>
+
+
+                    <div class="news__text-segment pure-u-1-4">
+                        <div class="news__date">15.02.2017 г.</div>
+                        <div class="news__subheading"><a href="#">ВЫСТАВКА “ПРОДЭКСПО”
+                            <br>2017</a></div>
+                        <p class="news__text arrow-right">В начале февраля рекламно-производственная компания
+                            "Восток-Запад» приняла участие в Международной
+                            специализированной выставке "Продэкспо-2017", которая
+                            прошла в Москве. <br>
+                            В этом году на выставке были представлены более 2000
+                            экспонентов из 60 стран. <br>
+                            Компания «Восток-Запад» демонстрировала на своем стенде
+                            собственные разработки торгового оборудования и
+                            POS-материалов: торговые и рекламные стойки, модульные
+                            конструкции, демонстраторы, подставки из оргстекла, примеры
+                            оформления мест продаж.
+                        </p>
+                    </div>
+                    <a href="#" class="news__img pure-u-1-4 arrow-right"
+                       style="background-image: url(img/news-img-4.png);"></a>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="about-us">
+        <div class="main-container">
+            <div class="pure-g benefits">
+                <div class="pure-u-2-5 benefits__item wow bounceInLeft" data-wow-offset="10" data-wow-delay="0.3s"
+                     data-wow-duration="1s">
+                    <div class="benefits__icon-wrapper"><span class="about-us__icon icon-decision"></span></div>
+                    <h4 class="benefits__subheading">НЕСТАНДАРТНЫЕ РЕШЕНИЯ</h4>
+                    <p class="benefits__content">
+                        Приоритетныем направлением <br>
+                        деятельности компании является <br>
+                        разработка и производство <br>
+                        немтандартных рекламных конструкций</p>
+
+                </div>
+                <div class="pure-u-1-5 benefits__item wow bounceInUp" data-wow-offset="10" data-wow-delay="0.6s"
+                     data-wow-duration="1s">
+                    <div class="benefits__icon-wrapper"><span class="about-us__icon icon-medal"></span></div>
+                    <h4 class="benefits__subheading">БОЛЕЕ 25 ЛЕТ НА РЫНКЕ</h4>
+                    <p class="benefits__content">
+                        ООО “ВОСТОК-ЗАПАД” <br>
+                        успешно работает на рынке <br>
+                        рекламных услуг <br>
+                        с 1991 года</p>
+
+                </div>
+                <div class="pure-u-2-5 benefits__item wow bounceInRight" data-wow-offset="10" data-wow-delay="0.9s"
+                     data-wow-duration="1s">
+                    <div class="benefits__icon-wrapper"><span class="about-us__icon icon-production"></span></div>
+                    <h4 class="benefits__subheading">СОБСТВЕННОЕ ПРОИЗВОДСТВО</h4>
+                    <p class="benefits__content">
+                        Вся продукция изготавливается на <br>
+                        собственном производстве с <br>
+                        использованием передовых технологий и <br>
+                        современного оборудования. <br>
+                    </p>
+                </div>
+            </div>
+
+            <div class="pure-g about-us__history">
+                <div class="pure-u-1-2 history__video wow bounceInLeft" data-wow-offset="10" data-wow-delay="0.15s"
+                     data-wow-duration="1s">
+                    <a class="history-video__poster" data-rel="lightcase" href="//www.youtube.com/embed/6v2L2UGZJAM?version=3"
+                       data-fancybox></a>
+                </div>
+                <div class="pure-u-1-2 about-us__content-wrapper wow bounceInRight" data-wow-offset="10"
+                     data-wow-delay="0.18s" data-wow-duration="1s">
+                    <h2 class="h2 title__line">НАША ИСТОРИЯ</h2>
+                    <p class="about-us__content">
+                        ООО «Восток-Запад» успешно работает на рынке рекламных услуг с 1991г.
+                        В начале своей деятельности фирма позиционировали себя в рекламно–информационном
+                        сегменте. Издание и распространение журнала, штат журналистов и фотокорреспондентов,
+                        сотрудничество с модельными агентствами — позволяло нам освещать новости, яркие и
+                        интересные события в жизни нашего города Ростова-на-Дону и Юга России.
+                        С 1998 г. развитие собственного производства по нескольким направлениям:
+                        изготовление и монтаж наружной рекламы
+                        шелкотрафаретная печать
+                        изготовление металлических и крупногабаритных сварных конструкций
+                        художественная ковка
+                        <br>
+                        С 2001 г. изготовление эксклюзивных папок-меню, папок-счетов, переплетные работы. С 2002 г. мы
+                        запустили цех широкоформатной, интерьерной и оперативной печати.
+                    </p>
+                    <a href="#" class="btn btn__red">УЗНАТЬ БОЛЬШЕ</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="services pure-g" id="services">
+        <div class="pure-u-1-2 services-img">
+            <div class="services-img__pic"></div>
+
+            <div class="services-img__c-big circle-loader__wrap">
+                <div class="left-wrap">
+                    <div class="circle-loader-inside"></div>
+                </div>
+                <div class="right-wrap">
+                    <div class="circle-loader-inside"></div>
+                </div>
+            </div>
+
+            <div class="services-img__c-smaller circle-loader__wrap">
+                <div class="left-wrap">
+                    <div class="circle-loader-inside"></div>
+                </div>
+                <div class="right-wrap">
+                    <div class="circle-loader-inside"></div>
+                </div>
+            </div>
+
+            <div class="services-img__c-border">
+                <div class="services-img__line services-img__line_1"></div>
+                <div class="services-img__line services-img__line_2"></div>
+                <div class="services-img__line services-img__line_3"></div>
+                <div class="services-img__line services-img__line_4"></div>
+                <div class="services-img__line services-img__line_5"></div>
+            </div>
+
+            <div class="services-img__c-small circle-loader__wrap">
+                <div class="left-wrap">
+                    <div class="circle-loader-inside"></div>
+                </div>
+                <div class="right-wrap">
+                    <div class="circle-loader-inside"></div>
+                </div>
+            </div>
+
+            <div class="services-img__c-little services-img__c-little_1"></div>
+            <div class="services-img__c-little services-img__c-little_2"></div>
+            <div class="services-img__c-little services-img__c-little_3"></div>
+            <div class="services-img__c-little services-img__c-little_4"></div>
+            <div class="services-img__c-little services-img__c-little_5"></div>
+
+            <div class="services-img__h2 h2">
+                УСЛУГИ <br> И ПРОДУКЦИЯ
+            </div>
+        </div>
+
+        <div class="pure-u-1-2 services-list">
+            <div class="services-list__item">
+                <div class="services-list__item--heading small-title__line">POS-МАТЕРИАЛЫ.ФОРМЛЕНИЕ МЕСТ ПРОДАЖ</div>
+                <p> Разработка и изготовление материалов для продвижения товаров, услуг,
+                    коммуникации бренда, выделения товара из числа конкурентов и поддержки
+                    продаж непосредственно на точках розничной торговли, зоне HoReCa, входных
+                    и прикассовых зонах. Комплексное оформление мест продаж от входной группы,
+                    выносных штендеров и навигационных указателей до оформления выкладки и
+                    материалов для непосредственной подачи продукции на витрине
+                </p>
+                <a class="services__section-link">В РАЗДЕЛ</a>
+            </div>
+            <div class="services-list__item">
+                <div class="services-list__item--heading small-title__line">СУВЕНИРНАЯ ПРОДУКЦИЯ. ПРОМО МАТЕРИАЛЫ</div>
+                <p>Разработка индивидуального дизайна и изготовление на собственной производственной
+                    базе сувенирной продукции и промо материалов.
+                    Бизнес подарки, нанесение логотипа и корпоративной символики на кружки,
+                    блокноты, ручки. Рекламные и подарочные часы по индивидуальному дизайну.
+                    Все для проведения промо-акций: промо форма, полиграфия.
+                    Изготовление бумажных и ПВД пакетов, подарочной упаковки.
+                </p>
+                <a class="services__section-link">В РАЗДЕЛ</a>
+            </div>
+            <div class="services-list__item">
+                <div class="services-list__item--heading small-title__line">ПОЛИГРАФИЯ</div>
+                <p>Дизайн и производство рекламной и представительской полиграфии:
+                    каталоги, буклеты, листовки, пригласительные билеты, папки, бланки,
+                    дипломы, открытки, визитки, наклейки. Дизайн упаковки. Квартальные календари, постеры.
+                    Бумажные и полиэтиленовые пакеты. Нанесение логотипа на сувениры и
+                    текстиль.
+                    Полный спектр полиграфических работ: печать, шелкография, тиснение, конгрев,
+                    блинтование, термоперенос, вышивка, гравировка, переплет.
+                </p>
+                <a class="services__section-link">В РАЗДЕЛ</a>
+            </div>
+            <div class="services-list__item">
+                <div class="services-list__item--heading small-title__line">РЕКЛАМНЫЕ КОНСТРУКЦИИ. НАРУЖНАЯ РЕКЛАМА
+                </div>
+                <p>Вывески, входные группы, козырьки и навесы, комплексное оформление фасадов,
+                    крупногабаритные нестандартные конструкции, стелы, пилоны.
+                    Архитектурные формы, металлические и кованные изделия.
+                    Дизайн, изготовление, доставка, подготовка технической и
+                    конструкторской документации, монтаж (ЮФО), шеф-монтаж.
+                    Паспортизация наружной рекламы (ЮФО).
+                </p>
+                <a class="services__section-link">В РАЗДЕЛ</a>
+            </div>
+            <div class="services-list__item">
+                <div class="services-list__item--heading small-title__line">ДИЗАЙН. РАЗРАБОТКА. КОНСТРУИРОВАНИЕ</div>
+                <p>Услуги опытных дизайнеров, технологов и конструкторов. Разработка P.O.S.
+                    и рекламных решений от карандашного наброска до тех.описания и проектной
+                    документации. Графический дизайн. Дизайн среды.
+                </p>
+                <a class="services__section-link">В РАЗДЕЛ</a>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="portfolio">
+        <div class="portfolio-tabs">
+            <div class="wow fadeInUp" data-wow-duration="0.5s">
+                <h2 class="h2 main-title"><span></span>Портфолио</h2>
+
+                <ul class="portfolio__menu-list tabs-list">
+                    <li class="porfolio__menu--list-item">
+                        <a href="#" class="portfolio__menu--list-link active" data-tab="portfolio-tab-1">ВСЕ </a>
+                    </li>
+                    <li class="porfolio__menu--list-item">
+                        <a href="#" class="portfolio__menu--list-link" data-tab="portfolio-tab-2">POS-МАТЕРИАЛЫ </a>
+                    </li>
+                    <li class="porfolio__menu--list-item">
+                        <a href="#" class="portfolio__menu--list-link" data-tab="portfolio-tab-3">СУВЕНИРНАЯ
+                            ПРОДУКЦИЯ </a>
+                    </li>
+                    <li class="porfolio__menu--list-item">
+                        <a href="#" class="portfolio__menu--list-link" data-tab="portfolio-tab-4">ПОЛИГРАФИЯ </a>
+                    </li>
+                    <li class="porfolio__menu--list-item">
+                        <a href="#" class="portfolio__menu--list-link" data-tab="portfolio-tab-5">НАРУЖНАЯ РЕКЛАМА </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="portfolio-tabs__cont wow fadeInRight" data-wow-duration="0.5s">
+                <div id="portfolio-tab-1" class="portfolio-tab">
+                    <div class="portfolio__examples clearfix">
+                        <div class="portfolio-example__item" style="background-image: url(img/portfolio-img-1.png);">
+                            <a href="img/portfolio-img-2-big.png" data-rel="lightcase:myCollection"
+                               class="portfolio-example__link" title="Торгово-выставочное оборудование.
+                                            Система модулей из ЛДСП со светодиодной подсветкой
+                                            и стоек-тотемов из алюминиевых композитов"></a>
+
+                            <div class="portfolio-example__info">
+                                <div class="portfolio-example__title">caparol shop</div>
+                                <p>Торгово-выставочное оборудование.
+                                    Система модулей из ЛДСП со светодиодной подсветкой
+                                    и стоек-тотемов из алюминиевых композитов</p>
+                            </div>
+                        </div>
+
+                        <div class="portfolio-example__item" style="background-image: url(img/portfolio-img-2.png);">
+                            <a href="img/portfolio-img-2-big.png" data-rel="lightcase:myCollection"
+                               class="portfolio-example__link" title="Торгово-выставочное оборудование.
+                                            Система модулей из ЛДСП со светодиодной подсветкой
+                                            и стоек-тотемов из алюминиевых композитов"></a>
+
+                            <div class="portfolio-example__info">
+                                <div class="portfolio-example__title">caparol shop</div>
+                                <p>Торгово-выставочное оборудование.
+                                    Система модулей из ЛДСП со светодиодной подсветкой
+                                    и стоек-тотемов из алюминиевых композитов</p>
+                            </div>
+                        </div>
+
+                        <div class="portfolio-example__item" style="background-image: url(img/portfolio-img-3.png);">
+                            <a href="img/portfolio-img-2-big.png" data-rel="lightcase:myCollection"
+                               class="portfolio-example__link" title="Торгово-выставочное оборудование.
+                                            Система модулей из ЛДСП со светодиодной подсветкой
+                                            и стоек-тотемов из алюминиевых композитов"></a>
+
+                            <div class="portfolio-example__info">
+                                <div class="portfolio-example__title">caparol shop</div>
+                                <p>Торгово-выставочное оборудование.
+                                    Система модулей из ЛДСП со светодиодной подсветкой
+                                    и стоек-тотемов из алюминиевых композитов</p>
+                            </div>
+                        </div>
+
+                        <div class="portfolio-example__item" style="background-image: url(img/portfolio-img-4.png);">
+                            <a href="img/portfolio-img-2-big.png" data-rel="lightcase:myCollection"
+                               class="portfolio-example__link" title="Торгово-выставочное оборудование.
+                                            Система модулей из ЛДСП со светодиодной подсветкой
+                                            и стоек-тотемов из алюминиевых композитов"></a>
+
+                            <div class="portfolio-example__info">
+                                <div class="portfolio-example__title">caparol shop</div>
+                                <p>Торгово-выставочное оборудование.
+                                    Система модулей из ЛДСП со светодиодной подсветкой
+                                    и стоек-тотемов из алюминиевых композитов</p>
+                            </div>
+                        </div>
+
+                        <div class="portfolio-example__item" style="background-image: url(img/portfolio-img-5.png);">
+                            <a href="img/portfolio-img-2-big.png" data-rel="lightcase:myCollection"
+                               class="portfolio-example__link" title="Торгово-выставочное оборудование.
+                                            Система модулей из ЛДСП со светодиодной подсветкой
+                                            и стоек-тотемов из алюминиевых композитов"></a>
+
+                            <div class="portfolio-example__info">
+                                <div class="portfolio-example__title">caparol shop</div>
+                                <p>Торгово-выставочное оборудование.
+                                    Система модулей из ЛДСП со светодиодной подсветкой
+                                    и стоек-тотемов из алюминиевых композитов</p>
+                            </div>
+                        </div>
+
+                        <div class="portfolio-example__item" style="background-image: url(img/portfolio-img-6.png);">
+                            <a href="img/portfolio-img-2-big.png" data-rel="lightcase:myCollection"
+                               class="portfolio-example__link" title="Торгово-выставочное оборудование.
+                                            Система модулей из ЛДСП со светодиодной подсветкой
+                                            и стоек-тотемов из алюминиевых композитов"></a>
+
+                            <div class="portfolio-example__info">
+                                <div class="portfolio-example__title">caparol shop</div>
+                                <p>Торгово-выставочное оборудование.
+                                    Система модулей из ЛДСП со светодиодной подсветкой
+                                    и стоек-тотемов из алюминиевых композитов</p>
+                            </div>
+                        </div>
+
+                        <div class="portfolio-example__item" style="background-image: url(img/portfolio-img-7.png);">
+                            <a href="img/portfolio-img-2-big.png" data-rel="lightcase:myCollection"
+                               class="portfolio-example__link" title="Торгово-выставочное оборудование.
+                                            Система модулей из ЛДСП со светодиодной подсветкой
+                                            и стоек-тотемов из алюминиевых композитов"></a>
+
+                            <div class="portfolio-example__info">
+                                <div class="portfolio-example__title">caparol shop</div>
+                                <p>Торгово-выставочное оборудование.
+                                    Система модулей из ЛДСП со светодиодной подсветкой
+                                    и стоек-тотемов из алюминиевых композитов</p>
+                            </div>
+                        </div>
+
+                        <div class="portfolio-example__item" style="background-image: url(img/portfolio-img-8.png);">
+                            <a href="img/portfolio-img-2-big.png" data-rel="lightcase:myCollection"
+                               class="portfolio-example__link" title="Торгово-выставочное оборудование.
+                                            Система модулей из ЛДСП со светодиодной подсветкой
+                                            и стоек-тотемов из алюминиевых композитов"></a>
+
+                            <div class="portfolio-example__info">
+                                <div class="portfolio-example__title">caparol shop</div>
+                                <p>Торгово-выставочное оборудование.
+                                    Система модулей из ЛДСП со светодиодной подсветкой
+                                    и стоек-тотемов из алюминиевых композитов</p>
+                            </div>
+                        </div>
+
+                        <div class="portfolio-example__item" style="background-image: url(img/portfolio-img-9.png);">
+                            <a href="img/portfolio-img-2-big.png" data-rel="lightcase:myCollection"
+                               class="portfolio-example__link" title="Торгово-выставочное оборудование.
+                                            Система модулей из ЛДСП со светодиодной подсветкой
+                                            и стоек-тотемов из алюминиевых композитов"></a>
+
+                            <div class="portfolio-example__info">
+                                <div class="portfolio-example__title">caparol shop</div>
+                                <p>Торгово-выставочное оборудование.
+                                    Система модулей из ЛДСП со светодиодной подсветкой
+                                    и стоек-тотемов из алюминиевых композитов</p>
+                            </div>
+                        </div>
+
+                        <div class="portfolio-example__item" style="background-image: url(img/portfolio-img-10.png);">
+                            <a href="img/portfolio-img-2-big.png" data-rel="lightcase:myCollection"
+                               class="portfolio-example__link" title="Торгово-выставочное оборудование.
+                                            Система модулей из ЛДСП со светодиодной подсветкой
+                                            и стоек-тотемов из алюминиевых композитов"></a>
+
+                            <div class="portfolio-example__info">
+                                <div class="portfolio-example__title">caparol shop</div>
+                                <p>Торгово-выставочное оборудование.
+                                    Система модулей из ЛДСП со светодиодной подсветкой
+                                    и стоек-тотемов из алюминиевых композитов</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div id="portfolio-tab-2" class="portfolio-tab">
+                    <div class="portfolio__examples clearfix">
+                        <div class="portfolio-example__item" style="background-image: url(img/portfolio-img-1.png);">
+                            <a href="img/portfolio-img-2-big.png" data-rel="lightcase:myCollection"
+                               class="portfolio-example__link" title="Торгово-выставочное оборудование.
+                                            Система модулей из ЛДСП со светодиодной подсветкой
+                                            и стоек-тотемов из алюминиевых композитов"></a>
+
+                            <div class="portfolio-example__info">
+                                <div class="portfolio-example__title">caparol shop</div>
+                                <p>Торгово-выставочное оборудование.
+                                    Система модулей из ЛДСП со светодиодной подсветкой
+                                    и стоек-тотемов из алюминиевых композитов</p>
+                            </div>
+                        </div>
+
+                        <div class="portfolio-example__item" style="background-image: url(img/portfolio-img-2.png);">
+                            <a href="img/portfolio-img-2-big.png" data-rel="lightcase:myCollection"
+                               class="portfolio-example__link" title="Торгово-выставочное оборудование.
+                                            Система модулей из ЛДСП со светодиодной подсветкой
+                                            и стоек-тотемов из алюминиевых композитов"></a>
+
+                            <div class="portfolio-example__info">
+                                <div class="portfolio-example__title">caparol shop</div>
+                                <p>Торгово-выставочное оборудование.
+                                    Система модулей из ЛДСП со светодиодной подсветкой
+                                    и стоек-тотемов из алюминиевых композитов</p>
+                            </div>
+                        </div>
+
+                        <div class="portfolio-example__item" style="background-image: url(img/portfolio-img-3.png);">
+                            <a href="img/portfolio-img-2-big.png" data-rel="lightcase:myCollection"
+                               class="portfolio-example__link" title="Торгово-выставочное оборудование.
+                                            Система модулей из ЛДСП со светодиодной подсветкой
+                                            и стоек-тотемов из алюминиевых композитов"></a>
+
+                            <div class="portfolio-example__info">
+                                <div class="portfolio-example__title">caparol shop</div>
+                                <p>Торгово-выставочное оборудование.
+                                    Система модулей из ЛДСП со светодиодной подсветкой
+                                    и стоек-тотемов из алюминиевых композитов</p>
+                            </div>
+                        </div>
+
+                        <div class="portfolio-example__item" style="background-image: url(img/portfolio-img-4.png);">
+                            <a href="img/portfolio-img-2-big.png" data-rel="lightcase:myCollection"
+                               class="portfolio-example__link" title="Торгово-выставочное оборудование.
+                                            Система модулей из ЛДСП со светодиодной подсветкой
+                                            и стоек-тотемов из алюминиевых композитов"></a>
+
+                            <div class="portfolio-example__info">
+                                <div class="portfolio-example__title">caparol shop</div>
+                                <p>Торгово-выставочное оборудование.
+                                    Система модулей из ЛДСП со светодиодной подсветкой
+                                    и стоек-тотемов из алюминиевых композитов</p>
+                            </div>
+                        </div>
+
+                        <div class="portfolio-example__item" style="background-image: url(img/portfolio-img-5.png);">
+                            <a href="img/portfolio-img-2-big.png" data-rel="lightcase:myCollection"
+                               class="portfolio-example__link" title="Торгово-выставочное оборудование.
+                                            Система модулей из ЛДСП со светодиодной подсветкой
+                                            и стоек-тотемов из алюминиевых композитов"></a>
+
+                            <div class="portfolio-example__info">
+                                <div class="portfolio-example__title">caparol shop</div>
+                                <p>Торгово-выставочное оборудование.
+                                    Система модулей из ЛДСП со светодиодной подсветкой
+                                    и стоек-тотемов из алюминиевых композитов</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div id="portfolio-tab-3" class="portfolio-tab">
+                    <div class="portfolio__examples clearfix">
+                        <div class="portfolio-example__item" style="background-image: url(img/portfolio-img-1.png);">
+                            <a href="img/portfolio-img-2-big.png" data-rel="lightcase:myCollection"
+                               class="portfolio-example__link" title="Торгово-выставочное оборудование.
+                                            Система модулей из ЛДСП со светодиодной подсветкой
+                                            и стоек-тотемов из алюминиевых композитов"></a>
+
+                            <div class="portfolio-example__info">
+                                <div class="portfolio-example__title">caparol shop</div>
+                                <p>Торгово-выставочное оборудование.
+                                    Система модулей из ЛДСП со светодиодной подсветкой
+                                    и стоек-тотемов из алюминиевых композитов</p>
+                            </div>
+                        </div>
+
+                        <div class="portfolio-example__item" style="background-image: url(img/portfolio-img-2.png);">
+                            <a href="img/portfolio-img-2-big.png" data-rel="lightcase:myCollection"
+                               class="portfolio-example__link" title="Торгово-выставочное оборудование.
+                                            Система модулей из ЛДСП со светодиодной подсветкой
+                                            и стоек-тотемов из алюминиевых композитов"></a>
+
+                            <div class="portfolio-example__info">
+                                <div class="portfolio-example__title">caparol shop</div>
+                                <p>Торгово-выставочное оборудование.
+                                    Система модулей из ЛДСП со светодиодной подсветкой
+                                    и стоек-тотемов из алюминиевых композитов</p>
+                            </div>
+                        </div>
+
+                        <div class="portfolio-example__item" style="background-image: url(img/portfolio-img-3.png);">
+                            <a href="img/portfolio-img-2-big.png" data-rel="lightcase:myCollection"
+                               class="portfolio-example__link" title="Торгово-выставочное оборудование.
+                                            Система модулей из ЛДСП со светодиодной подсветкой
+                                            и стоек-тотемов из алюминиевых композитов"></a>
+
+                            <div class="portfolio-example__info">
+                                <div class="portfolio-example__title">caparol shop</div>
+                                <p>Торгово-выставочное оборудование.
+                                    Система модулей из ЛДСП со светодиодной подсветкой
+                                    и стоек-тотемов из алюминиевых композитов</p>
+                            </div>
+                        </div>
+
+                        <div class="portfolio-example__item" style="background-image: url(img/portfolio-img-4.png);">
+                            <a href="img/portfolio-img-2-big.png" data-rel="lightcase:myCollection"
+                               class="portfolio-example__link" title="Торгово-выставочное оборудование.
+                                            Система модулей из ЛДСП со светодиодной подсветкой
+                                            и стоек-тотемов из алюминиевых композитов"></a>
+
+                            <div class="portfolio-example__info">
+                                <div class="portfolio-example__title">caparol shop</div>
+                                <p>Торгово-выставочное оборудование.
+                                    Система модулей из ЛДСП со светодиодной подсветкой
+                                    и стоек-тотемов из алюминиевых композитов</p>
+                            </div>
+                        </div>
+
+                        <div class="portfolio-example__item" style="background-image: url(img/portfolio-img-5.png);">
+                            <a href="img/portfolio-img-2-big.png" data-rel="lightcase:myCollection"
+                               class="portfolio-example__link" title="Торгово-выставочное оборудование.
+                                            Система модулей из ЛДСП со светодиодной подсветкой
+                                            и стоек-тотемов из алюминиевых композитов"></a>
+
+                            <div class="portfolio-example__info">
+                                <div class="portfolio-example__title">caparol shop</div>
+                                <p>Торгово-выставочное оборудование.
+                                    Система модулей из ЛДСП со светодиодной подсветкой
+                                    и стоек-тотемов из алюминиевых композитов</p>
+                            </div>
+                        </div>
+
+                        <div class="portfolio-example__item" style="background-image: url(img/portfolio-img-6.png);">
+                            <a href="img/portfolio-img-2-big.png" data-rel="lightcase:myCollection"
+                               class="portfolio-example__link" title="Торгово-выставочное оборудование.
+                                            Система модулей из ЛДСП со светодиодной подсветкой
+                                            и стоек-тотемов из алюминиевых композитов"></a>
+
+                            <div class="portfolio-example__info">
+                                <div class="portfolio-example__title">caparol shop</div>
+                                <p>Торгово-выставочное оборудование.
+                                    Система модулей из ЛДСП со светодиодной подсветкой
+                                    и стоек-тотемов из алюминиевых композитов</p>
+                            </div>
+                        </div>
+
+                        <div class="portfolio-example__item" style="background-image: url(img/portfolio-img-7.png);">
+                            <a href="img/portfolio-img-2-big.png" data-rel="lightcase:myCollection"
+                               class="portfolio-example__link" title="Торгово-выставочное оборудование.
+                                            Система модулей из ЛДСП со светодиодной подсветкой
+                                            и стоек-тотемов из алюминиевых композитов"></a>
+
+                            <div class="portfolio-example__info">
+                                <div class="portfolio-example__title">caparol shop</div>
+                                <p>Торгово-выставочное оборудование.
+                                    Система модулей из ЛДСП со светодиодной подсветкой
+                                    и стоек-тотемов из алюминиевых композитов</p>
+                            </div>
+                        </div>
+
+                        <div class="portfolio-example__item" style="background-image: url(img/portfolio-img-8.png);">
+                            <a href="img/portfolio-img-2-big.png" data-rel="lightcase:myCollection"
+                               class="portfolio-example__link" title="Торгово-выставочное оборудование.
+                                            Система модулей из ЛДСП со светодиодной подсветкой
+                                            и стоек-тотемов из алюминиевых композитов"></a>
+
+                            <div class="portfolio-example__info">
+                                <div class="portfolio-example__title">caparol shop</div>
+                                <p>Торгово-выставочное оборудование.
+                                    Система модулей из ЛДСП со светодиодной подсветкой
+                                    и стоек-тотемов из алюминиевых композитов</p>
+                            </div>
+                        </div>
+
+                        <div class="portfolio-example__item" style="background-image: url(img/portfolio-img-9.png);">
+                            <a href="img/portfolio-img-2-big.png" data-rel="lightcase:myCollection"
+                               class="portfolio-example__link" title="Торгово-выставочное оборудование.
+                                            Система модулей из ЛДСП со светодиодной подсветкой
+                                            и стоек-тотемов из алюминиевых композитов"></a>
+
+                            <div class="portfolio-example__info">
+                                <div class="portfolio-example__title">caparol shop</div>
+                                <p>Торгово-выставочное оборудование.
+                                    Система модулей из ЛДСП со светодиодной подсветкой
+                                    и стоек-тотемов из алюминиевых композитов</p>
+                            </div>
+                        </div>
+
+                        <div class="portfolio-example__item" style="background-image: url(img/portfolio-img-10.png);">
+                            <a href="img/portfolio-img-2-big.png" data-rel="lightcase:myCollection"
+                               class="portfolio-example__link" title="Торгово-выставочное оборудование.
+                                            Система модулей из ЛДСП со светодиодной подсветкой
+                                            и стоек-тотемов из алюминиевых композитов"></a>
+
+                            <div class="portfolio-example__info">
+                                <div class="portfolio-example__title">caparol shop</div>
+                                <p>Торгово-выставочное оборудование.
+                                    Система модулей из ЛДСП со светодиодной подсветкой
+                                    и стоек-тотемов из алюминиевых композитов</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div id="portfolio-tab-4" class="portfolio-tab">
+                    <div class="portfolio__examples clearfix">
+                        <div class="portfolio-example__item" style="background-image: url(img/portfolio-img-1.png);">
+                            <a href="img/portfolio-img-2-big.png" data-rel="lightcase:myCollection"
+                               class="portfolio-example__link" title="Торгово-выставочное оборудование.
+                                            Система модулей из ЛДСП со светодиодной подсветкой
+                                            и стоек-тотемов из алюминиевых композитов"></a>
+
+                            <div class="portfolio-example__info">
+                                <div class="portfolio-example__title">caparol shop</div>
+                                <p>Торгово-выставочное оборудование.
+                                    Система модулей из ЛДСП со светодиодной подсветкой
+                                    и стоек-тотемов из алюминиевых композитов</p>
+                            </div>
+                        </div>
+
+                        <div class="portfolio-example__item" style="background-image: url(img/portfolio-img-2.png);">
+                            <a href="img/portfolio-img-2-big.png" data-rel="lightcase:myCollection"
+                               class="portfolio-example__link" title="Торгово-выставочное оборудование.
+                                            Система модулей из ЛДСП со светодиодной подсветкой
+                                            и стоек-тотемов из алюминиевых композитов"></a>
+
+                            <div class="portfolio-example__info">
+                                <div class="portfolio-example__title">caparol shop</div>
+                                <p>Торгово-выставочное оборудование.
+                                    Система модулей из ЛДСП со светодиодной подсветкой
+                                    и стоек-тотемов из алюминиевых композитов</p>
+                            </div>
+                        </div>
+
+                        <div class="portfolio-example__item" style="background-image: url(img/portfolio-img-3.png);">
+                            <a href="img/portfolio-img-2-big.png" data-rel="lightcase:myCollection"
+                               class="portfolio-example__link" title="Торгово-выставочное оборудование.
+                                            Система модулей из ЛДСП со светодиодной подсветкой
+                                            и стоек-тотемов из алюминиевых композитов"></a>
+
+                            <div class="portfolio-example__info">
+                                <div class="portfolio-example__title">caparol shop</div>
+                                <p>Торгово-выставочное оборудование.
+                                    Система модулей из ЛДСП со светодиодной подсветкой
+                                    и стоек-тотемов из алюминиевых композитов</p>
+                            </div>
+                        </div>
+
+                        <div class="portfolio-example__item" style="background-image: url(img/portfolio-img-4.png);">
+                            <a href="img/portfolio-img-2-big.png" data-rel="lightcase:myCollection"
+                               class="portfolio-example__link" title="Торгово-выставочное оборудование.
+                                            Система модулей из ЛДСП со светодиодной подсветкой
+                                            и стоек-тотемов из алюминиевых композитов"></a>
+
+                            <div class="portfolio-example__info">
+                                <div class="portfolio-example__title">caparol shop</div>
+                                <p>Торгово-выставочное оборудование.
+                                    Система модулей из ЛДСП со светодиодной подсветкой
+                                    и стоек-тотемов из алюминиевых композитов</p>
+                            </div>
+                        </div>
+
+                        <div class="portfolio-example__item" style="background-image: url(img/portfolio-img-5.png);">
+                            <a href="img/portfolio-img-2-big.png" data-rel="lightcase:myCollection"
+                               class="portfolio-example__link" title="Торгово-выставочное оборудование.
+                                            Система модулей из ЛДСП со светодиодной подсветкой
+                                            и стоек-тотемов из алюминиевых композитов"></a>
+
+                            <div class="portfolio-example__info">
+                                <div class="portfolio-example__title">caparol shop</div>
+                                <p>Торгово-выставочное оборудование.
+                                    Система модулей из ЛДСП со светодиодной подсветкой
+                                    и стоек-тотемов из алюминиевых композитов</p>
+                            </div>
+                        </div>
+
+                        <div class="portfolio-example__item" style="background-image: url(img/portfolio-img-6.png);">
+                            <a href="img/portfolio-img-2-big.png" data-rel="lightcase:myCollection"
+                               class="portfolio-example__link" title="Торгово-выставочное оборудование.
+                                            Система модулей из ЛДСП со светодиодной подсветкой
+                                            и стоек-тотемов из алюминиевых композитов"></a>
+
+                            <div class="portfolio-example__info">
+                                <div class="portfolio-example__title">caparol shop</div>
+                                <p>Торгово-выставочное оборудование.
+                                    Система модулей из ЛДСП со светодиодной подсветкой
+                                    и стоек-тотемов из алюминиевых композитов</p>
+                            </div>
+                        </div>
+
+                        <div class="portfolio-example__item" style="background-image: url(img/portfolio-img-7.png);">
+                            <a href="img/portfolio-img-2-big.png" data-rel="lightcase:myCollection"
+                               class="portfolio-example__link" title="Торгово-выставочное оборудование.
+                                            Система модулей из ЛДСП со светодиодной подсветкой
+                                            и стоек-тотемов из алюминиевых композитов"></a>
+
+                            <div class="portfolio-example__info">
+                                <div class="portfolio-example__title">caparol shop</div>
+                                <p>Торгово-выставочное оборудование.
+                                    Система модулей из ЛДСП со светодиодной подсветкой
+                                    и стоек-тотемов из алюминиевых композитов</p>
+                            </div>
+                        </div>
+
+                        <div class="portfolio-example__item" style="background-image: url(img/portfolio-img-8.png);">
+                            <a href="img/portfolio-img-2-big.png" data-rel="lightcase:myCollection"
+                               class="portfolio-example__link" title="Торгово-выставочное оборудование.
+                                            Система модулей из ЛДСП со светодиодной подсветкой
+                                            и стоек-тотемов из алюминиевых композитов"></a>
+
+                            <div class="portfolio-example__info">
+                                <div class="portfolio-example__title">caparol shop</div>
+                                <p>Торгово-выставочное оборудование.
+                                    Система модулей из ЛДСП со светодиодной подсветкой
+                                    и стоек-тотемов из алюминиевых композитов</p>
+                            </div>
+                        </div>
+
+                        <div class="portfolio-example__item" style="background-image: url(img/portfolio-img-9.png);">
+                            <a href="img/portfolio-img-2-big.png" data-rel="lightcase:myCollection"
+                               class="portfolio-example__link" title="Торгово-выставочное оборудование.
+                                            Система модулей из ЛДСП со светодиодной подсветкой
+                                            и стоек-тотемов из алюминиевых композитов"></a>
+
+                            <div class="portfolio-example__info">
+                                <div class="portfolio-example__title">caparol shop</div>
+                                <p>Торгово-выставочное оборудование.
+                                    Система модулей из ЛДСП со светодиодной подсветкой
+                                    и стоек-тотемов из алюминиевых композитов</p>
+                            </div>
+                        </div>
+
+                        <div class="portfolio-example__item" style="background-image: url(img/portfolio-img-10.png);">
+                            <a href="img/portfolio-img-2-big.png" data-rel="lightcase:myCollection"
+                               class="portfolio-example__link" title="Торгово-выставочное оборудование.
+                                            Система модулей из ЛДСП со светодиодной подсветкой
+                                            и стоек-тотемов из алюминиевых композитов"></a>
+
+                            <div class="portfolio-example__info">
+                                <div class="portfolio-example__title">caparol shop</div>
+                                <p>Торгово-выставочное оборудование.
+                                    Система модулей из ЛДСП со светодиодной подсветкой
+                                    и стоек-тотемов из алюминиевых композитов</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div id="portfolio-tab-5" class="portfolio-tab">
+                    <div class="portfolio__examples clearfix">
+                        <div class="portfolio-example__item" style="background-image: url(img/portfolio-img-1.png);">
+                            <a href="img/portfolio-img-2-big.png" data-rel="lightcase:myCollection"
+                               class="portfolio-example__link" title="Торгово-выставочное оборудование.
+                                            Система модулей из ЛДСП со светодиодной подсветкой
+                                            и стоек-тотемов из алюминиевых композитов"></a>
+
+                            <div class="portfolio-example__info">
+                                <div class="portfolio-example__title">caparol shop</div>
+                                <p>Торгово-выставочное оборудование.
+                                    Система модулей из ЛДСП со светодиодной подсветкой
+                                    и стоек-тотемов из алюминиевых композитов</p>
+                            </div>
+                        </div>
+
+                        <div class="portfolio-example__item" style="background-image: url(img/portfolio-img-2.png);">
+                            <a href="img/portfolio-img-2-big.png" data-rel="lightcase:myCollection"
+                               class="portfolio-example__link" title="Торгово-выставочное оборудование.
+                                            Система модулей из ЛДСП со светодиодной подсветкой
+                                            и стоек-тотемов из алюминиевых композитов"></a>
+
+                            <div class="portfolio-example__info">
+                                <div class="portfolio-example__title">caparol shop</div>
+                                <p>Торгово-выставочное оборудование.
+                                    Система модулей из ЛДСП со светодиодной подсветкой
+                                    и стоек-тотемов из алюминиевых композитов</p>
+                            </div>
+                        </div>
+
+                        <div class="portfolio-example__item" style="background-image: url(img/portfolio-img-3.png);">
+                            <a href="img/portfolio-img-2-big.png" data-rel="lightcase:myCollection"
+                               class="portfolio-example__link" title="Торгово-выставочное оборудование.
+                                            Система модулей из ЛДСП со светодиодной подсветкой
+                                            и стоек-тотемов из алюминиевых композитов"></a>
+
+                            <div class="portfolio-example__info">
+                                <div class="portfolio-example__title">caparol shop</div>
+                                <p>Торгово-выставочное оборудование.
+                                    Система модулей из ЛДСП со светодиодной подсветкой
+                                    и стоек-тотемов из алюминиевых композитов</p>
+                            </div>
+                        </div>
+
+                        <div class="portfolio-example__item" style="background-image: url(img/portfolio-img-4.png);">
+                            <a href="img/portfolio-img-2-big.png" data-rel="lightcase:myCollection"
+                               class="portfolio-example__link" title="Торгово-выставочное оборудование.
+                                            Система модулей из ЛДСП со светодиодной подсветкой
+                                            и стоек-тотемов из алюминиевых композитов"></a>
+
+                            <div class="portfolio-example__info">
+                                <div class="portfolio-example__title">caparol shop</div>
+                                <p>Торгово-выставочное оборудование.
+                                    Система модулей из ЛДСП со светодиодной подсветкой
+                                    и стоек-тотемов из алюминиевых композитов</p>
+                            </div>
+                        </div>
+
+                        <div class="portfolio-example__item" style="background-image: url(img/portfolio-img-5.png);">
+                            <a href="img/portfolio-img-2-big.png" data-rel="lightcase:myCollection"
+                               class="portfolio-example__link" title="Торгово-выставочное оборудование.
+                                            Система модулей из ЛДСП со светодиодной подсветкой
+                                            и стоек-тотемов из алюминиевых композитов"></a>
+
+                            <div class="portfolio-example__info">
+                                <div class="portfolio-example__title">caparol shop</div>
+                                <p>Торгово-выставочное оборудование.
+                                    Система модулей из ЛДСП со светодиодной подсветкой
+                                    и стоек-тотемов из алюминиевых композитов</p>
+                            </div>
+                        </div>
+
+                        <div class="portfolio-example__item" style="background-image: url(img/portfolio-img-6.png);">
+                            <a href="img/portfolio-img-2-big.png" data-rel="lightcase:myCollection"
+                               class="portfolio-example__link" title="Торгово-выставочное оборудование.
+                                            Система модулей из ЛДСП со светодиодной подсветкой
+                                            и стоек-тотемов из алюминиевых композитов"></a>
+
+                            <div class="portfolio-example__info">
+                                <div class="portfolio-example__title">caparol shop</div>
+                                <p>Торгово-выставочное оборудование.
+                                    Система модулей из ЛДСП со светодиодной подсветкой
+                                    и стоек-тотемов из алюминиевых композитов</p>
+                            </div>
+                        </div>
+
+                        <div class="portfolio-example__item" style="background-image: url(img/portfolio-img-7.png);">
+                            <a href="img/portfolio-img-2-big.png" data-rel="lightcase:myCollection"
+                               class="portfolio-example__link" title="Торгово-выставочное оборудование.
+                                            Система модулей из ЛДСП со светодиодной подсветкой
+                                            и стоек-тотемов из алюминиевых композитов"></a>
+
+                            <div class="portfolio-example__info">
+                                <div class="portfolio-example__title">caparol shop</div>
+                                <p>Торгово-выставочное оборудование.
+                                    Система модулей из ЛДСП со светодиодной подсветкой
+                                    и стоек-тотемов из алюминиевых композитов</p>
+                            </div>
+                        </div>
+
+                        <div class="portfolio-example__item" style="background-image: url(img/portfolio-img-8.png);">
+                            <a href="img/portfolio-img-2-big.png" data-rel="lightcase:myCollection"
+                               class="portfolio-example__link" title="Торгово-выставочное оборудование.
+                                            Система модулей из ЛДСП со светодиодной подсветкой
+                                            и стоек-тотемов из алюминиевых композитов"></a>
+
+                            <div class="portfolio-example__info">
+                                <div class="portfolio-example__title">caparol shop</div>
+                                <p>Торгово-выставочное оборудование.
+                                    Система модулей из ЛДСП со светодиодной подсветкой
+                                    и стоек-тотемов из алюминиевых композитов</p>
+                            </div>
+                        </div>
+
+                        <div class="portfolio-example__item" style="background-image: url(img/portfolio-img-9.png);">
+                            <a href="img/portfolio-img-2-big.png" data-rel="lightcase:myCollection"
+                               class="portfolio-example__link" title="Торгово-выставочное оборудование.
+                                            Система модулей из ЛДСП со светодиодной подсветкой
+                                            и стоек-тотемов из алюминиевых композитов"></a>
+
+                            <div class="portfolio-example__info">
+                                <div class="portfolio-example__title">caparol shop</div>
+                                <p>Торгово-выставочное оборудование.
+                                    Система модулей из ЛДСП со светодиодной подсветкой
+                                    и стоек-тотемов из алюминиевых композитов</p>
+                            </div>
+                        </div>
+
+                        <div class="portfolio-example__item" style="background-image: url(img/portfolio-img-10.png);">
+                            <a href="img/portfolio-img-2-big.png" data-rel="lightcase:myCollection"
+                               class="portfolio-example__link" title="Торгово-выставочное оборудование.
+                                            Система модулей из ЛДСП со светодиодной подсветкой
+                                            и стоек-тотемов из алюминиевых композитов"></a>
+
+                            <div class="portfolio-example__info">
+                                <div class="portfolio-example__title">caparol shop</div>
+                                <p>Торгово-выставочное оборудование.
+                                    Система модулей из ЛДСП со светодиодной подсветкой
+                                    и стоек-тотемов из алюминиевых композитов</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="technology">
+        <div class="h2 main-title"><span></span>Технологии</div>
+        <div class="main-container pure-g">
+            <div class="pure-u-2-5 text-right">
+                <div class="technology__item technology__item-left wow bounceInLeft">
+                    <div class="technology__icon">
+                        <span class="icon-metal"></span>
+                        <span class="technology__number-icon technology__number-icon-1"></span>
+                    </div>
+                    <div class="technology__subheading">Обработка металла</div>
+                    <div class="technology__list-comment">ИЗГОТОВЛЕНИЕ МЕТАЛЛОКОНСТРУКЦИЙ И ТОРГОВОГО
+                        ОБОРУДОВАНИЯ. РАБОТА С НЕРЖАВЕЮЩЕЙ СТАЛЬЮ.
+                        <br>
+                    </div>
+                    <ul class="technology__list technology__item-left">
+                        <li class="technology__list-item">Лазерная резка(резка трубы на лазере, в т.ч. фигурная)</li>
+                        <li class="technology__list-item">Плазменная резка(резка металла толщиной до 30 мм)</li>
+                        <li class="technology__list-item">Рубка на гильотине</li>
+                        <li class="technology__list-item">Гибка металла на станках ЧПУ</li>
+                        <li class="technology__list-item">Сварка полуавтоматичекая, аргоновая, лазерная,
+                            <br> контактная
+                        </li>
+                        <li class="technology__list-item">Порошковая покраска</li>
+                    </ul>
+                </div>
+
+                <div class="technology__item technology__item-left wow bounceInLeft" data-wow-delay="1s">
+                    <div class="technology__icon">
+                        <span class="icon-glass"></span>
+                        <span class="technology__number-icon technology__number-icon-2"></span>
+                    </div>
+                    <div class="technology__subheading">РАБОТА С ОРГСТЕКЛОМ/ ПЛАСТИКОМ/
+                        КОМПОЗИТНЫМИ МАТЕРИАЛАМИ
+                    </div>
+                    <div class="technology__list-comment">ИЗГОТОВЛЕНИЕ POS-МАТЕРИАЛОВ ИЗ АКРИЛОВОГО СТЕКЛА,
+                        ПОЛИСТИРОЛА, ПВХ, ABS, ПЭТ, ПЛАСТИКОВЫХ И АЛЮМИНИЕВЫХ КОМПОЗИТОВ
+                    </div>
+                    <ul class="technology__list technology__item-left">
+                        <li class="technology__list-item">Лазерная резка и гравировка</li>
+                        <li class="technology__list-item">3D фрезерование и гравировка</li>
+                        <li class="technology__list-item">Термогибка оргстекла и платиков</li>
+                        <li class="technology__list-item">Формование радиусов и плавнх изгибов</li>
+                        <li class="technology__list-item">Вакуумная формовка</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pure-u-1-5 technology__line-wrap">
+                <div class="technology__lines">
+                    <div class="technology__line-1 wow th-line-v" data-wow-duration="0.5s" data-wow-delay="1.5s"></div>
+                    <div class="technology__line-2 wow th-line-h" data-wow-duration="0.5s" data-wow-delay="2s"></div>
+                    <div class="technology__line-3 wow th-line-v" data-wow-duration="0.5s" data-wow-delay="2.5s"></div>
+                </div>
+            </div>
+
+            <div class="pure-u-2-5 text-left">
+                <div class="technology__item technology__item-right wow bounceInRight" data-wow-delay="0.5s">
+                    <div class="technology__icon">
+                        <span class="icon-wood"></span>
+                        <span class="technology__number-icon technology__number-icon-3"></span>
+                    </div>
+                    <div class=" technology__subheading">ДЕРЕВООБРАБОТКА</div>
+                    <div class="technology__list-comment">ИЗГОТОВЛЕНИЕ ТОРГОВО-ВЫСТАВОЧНОГО ОБОРУДОВАНИЯ И КОРУСНОЙ
+                        МЕБЕЛИ.
+                        РАБОТА С ДСП, МДФ, фанерой, массивом.
+                    </div>
+                    <ul class="technology__list technology__item-right">
+                        <li class="technology__list-item">Фомирование заготовок деталей на форматно-раскроечных и ЧПУ
+                            станках
+                        </li>
+                        <li class="technology__list-item">3D фрезерование</li>
+                        <li class="technology__list-item">Обработка торцевых поверхностей</li>
+                        <li class="technology__list-item">Вакуумный пресс и пресс холодной склейки</li>
+                        <li class="technology__list-item">Пластифицирование поверхности</li>
+                        <li class="technology__list-item">Лакокрасочное покрытие</li>
+                    </ul>
+                </div>
+                <div class="technology__item technology__item-right wow bounceInRight" data-wow-delay="1.5s">
+                    <div class="technology__icon">
+                        <span class="icon-materials-print"></span>
+                        <span class="technology__number-icon technology__number-icon-4"></span>
+                    </div>
+                    <div class="technology__subheading">ПЕЧАТЬ НА РАЗЛИЧНЫХ <br>
+                        МАТЕРИАЛАХ
+                    </div>
+                    <div class="technology__list-comment">ИЗГОТОВЛЕНИЕ ПЕЧАТНОЙ ПРОДУКЦИИ, РАЗЛИЧНЫХ POS
+                        И ПРОМО-МАТЕРИАЛОВ.
+                        <br>
+                        <br>
+                    </div>
+                    <ul class="technology__list technology__item-right">
+                        <li class="technology__list-item">Шелкотрафаретная печать</li>
+                        <li class="technology__list-item">Прямая UV-печать на твердых материалах</li>
+                        <li class="technology__list-item">Широкоформатная и интерьерная печать</li>
+                        <li class="technology__list-item">Оперативная полиграфия</li>
+                        <li class="technology__list-item">Офсетная печать</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>
+
+<footer id="footer">
+    <h2 class="main-title"><span></span>СВЯЖИТЕСЬ С НАМИ</h2>
+    <div class="pure-g">
+        <div class="pure-u-1-3 footer-info__wrapper">
+            <div class="footer-info">
+                <div class="footer-info__item">
+                    Россия, г. Ростов-на-Дону, <br>
+                    пр-т. Ворошиловский, 59/18
+                    <div class="footer-info__icon"><span class="icon-location"></span></div>
+                </div>
+
+                <div class="footer-info__item">
+                    (863) 255-97-11 <br>
+                    (многоканальный)
+                    <div class="footer-info__icon"><span class="icon-tel"></span></div>
+                </div>
+
+                <div class="footer-info__item">
+                    info@wostokzapad.ru
+                    <div class="footer-info__icon"><span class="icon-link"></span></div>
+                </div>
+
+                <div class="footer-info__item">
+                    <ul class="footer-info__list">
+                        <li class="foooter-info__list-item">пн-пт <span class="week">с 09:00 до 19:00</span></li>
+                        <li class="foooter-info__list-item">сб <span class="saturday">с 10:00 до 17:00</span></li>
+                        <li class="foooter-info__list-item">вс <span class="a#">дной</span></li>
+                    </ul>
+                    <div class="footer-info__icon"><span class="icon-clock"></span></div>
+                </div>
+            </div>
+
+            <div class="socials">
+                <a href="#"><span class="icon-twitter"></span></a>
+                <a href="#"><span class="icon-insta"></span></a>
+                <a href="#"><span class="icon-fb"></span></a>
+                <a href="#"><span class="icon-youtube"></span></a>
+                <a href="#"><span class="icon-vk"></span></a>
+            </div>
+
+        </div>
+        <div class="pure-u-2-3">
+            <div id="map"></div>
+
+        </div>
+    </div>
+</footer>
+
+<script src="js/vendor/jquery-1.11.2.min.js"></script>
+<script src="js/wow.min.js"></script>
+<script src="js/vendor/slick.min.js"></script>
+<script src="js/vendor/jquery.formstyler.min.js"></script>
+<script src="js/vendor/lightcase.js"></script>
+<script src="js/vendor/jquery-ui.min.js"></script>
+<script src="js/main.js"></script>
+
+</body>
+</html>
+
+
+

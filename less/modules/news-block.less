@@ -1,0 +1,112 @@
+.news-slider{
+  margin-top: 30px;
+}
+
+.news-slider__slide{
+  outline: 0;
+}
+
+.news__subheading{
+  margin: 26px 0 0 -1px;
+  a{
+    font-size: 24px;
+    color: @redColor;
+    text-transform: uppercase;
+    letter-spacing: 1.1px;
+    line-height: 29px;
+    text-decoration: none;
+  }
+  &:after{
+    content: "";
+    display: block;
+    .size(44px, 3px);
+    background-color: @redColor;
+    margin-top: 10px;
+    margin-bottom: 25px;
+  }
+}
+
+.news__img{
+  height: 480px;
+  background-position:center;
+  background-repeat:no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
+  position: relative;
+
+  &.arrow-right {
+    &:after {
+      left: 0;
+      top: 50%;
+      border: solid transparent;
+      content: " ";
+      height: 0;
+      width: 0;
+      position: absolute;
+      pointer-events: none;
+      border-color: rgba(236, 238, 243, 0);
+      border-left-color: #eceef3;
+      border-width: 33px;
+      margin-top: -36px;
+    }
+  }
+  &.arrow-left{
+    &:after {
+      right: 0;
+      top: 50%;
+      border: solid transparent;
+      content: " ";
+      height: 0;
+      width: 0;
+      position: absolute;
+      pointer-events: none;
+      border-color: rgba(236, 238, 243, 0);
+      border-right-color: #eceef3;
+      border-width: 33px;
+      margin-top: -36px;
+    }
+  }
+}
+
+.news__text-segment{
+  background-color: #eceef3;
+  padding: 44px 55px 42px 43px;
+  position: relative;
+  height: 480px;
+  overflow: hidden;
+
+  &:after {
+    height:36px;
+    width:100%;
+    background: #eceef3;
+    left:0;
+    bottom:0;
+    position: absolute;
+    content: '';
+    display: block;
+    z-index:10;
+  }
+}
+
+.news__text{
+  font-size: 14px;
+  display: inline-block;
+  line-height: 1.5;
+  margin-top: 1px;
+  margin-bottom: 0;
+  letter-spacing: 0.4px;
+  margin-left: -5px;
+  text-align: justify;
+}
+
+.news__date{
+  font-size: 14px;
+  letter-spacing: 1px;
+  margin-left: 1px;
+}
+
+.news-slider{
+  .slick-dots {
+    bottom: -39px;
+  }
+}
